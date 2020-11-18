@@ -7,6 +7,8 @@
     </head>
         
     <body>
+        <?= $menu ?>
         <?= $content ?>
+        <?= $footer ?>
     </body>
 </html>
