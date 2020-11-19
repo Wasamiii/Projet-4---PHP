@@ -9,6 +9,8 @@
     <body>
         <?= $menu ?>
         <?= $content ?>
-        <?= $footer ?>
     </body>
+    <footer>
+    <?= $footer ?>  
+    </footer>
 </html>
