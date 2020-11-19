@@ -1,11 +1,18 @@
+<?php $title = '';?>
+
 <?php ob_start();?>
 
 <form method="post">
+        <div>
         <input type="email" name="email">
         <input type="password" name="password">
         <input type="inscription" value="Inscription" name="sigin">
-        <input type="connexion" value="connexion" name="login">
-        </form>
+        </div>
+        <div>
+        <input type="submit" value="connexion" name="login">
+        </div>
+</form>
+
+
 
 <?php  $menu = ob_get_clean();?>
-<?php require('view/frontend/template.php'); ?>
