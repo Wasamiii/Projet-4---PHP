@@ -2,14 +2,18 @@
 
 <?php ob_start();?>
 
-<form method="post">
+<form method="formsend">
         <div>
+        <input type="name" name="pseudo">
         <input type="email" name="email">
         <input type="password" name="password">
-        <input type="inscription" value="Inscription" name="sigin">
         </div>
         <div>
+        <input type="lemail" name="lemail">
+        <input type="lpassword" name="lpassword">
         <input type="submit" value="connexion" name="login">
+        <!--rediriger vers une page d'inscription-->
+        <input type="submit" value="inscription" name="sigin">
         </div>
 </form>
 
