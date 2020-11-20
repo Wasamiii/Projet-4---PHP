@@ -2,4 +2,4 @@
 
 <i class="fa fa-copyright" aria-hidden="true">copyright Wansch Erwann</i>
 
-<?php  $menu = ob_get_clean();?>
+<?php  $footer = ob_get_clean();?>
