@@ -1,7 +1,7 @@
 <?php
 namespace Wamp\www\model; 
 
-require_once("Manager.php");
+require_once("model/Manager.php");
 
 class PostManager extends Manager
 {

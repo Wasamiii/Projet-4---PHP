@@ -1,6 +1,6 @@
 <?php
 namespace Wamp\www\model;
-require_once("Manager.php");
+require_once("model/Manager.php");
 class CommentManager extends Manager
 {
     public function getComments($postId)
