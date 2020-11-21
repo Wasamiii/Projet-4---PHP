@@ -22,7 +22,7 @@ class CommentManager extends Manager
     }
     public function modifyComment($postId, $author, $modifyComment){
         $db = $this ->dbConnect();
-        $modifyComment = $db->prepare('UPDATE commments SET comment(post_id, authors, comment_text) WHERE `comments`.`id` = ?');
+        $modifyComment = $db->prepare('UPDATE commments SET comment(post_id, authors, comment_text) WHERE `comments`.`id_post` = ?');
         $affecteModify = $modifyComment->execute(array($postId, $author,$modifyComment));
 
         return $affecteModify;
