@@ -1,5 +1,5 @@
 <?php
-
+namespace Wamp\www\model;  
 class Manager
 {
     protected function dbConnect()
