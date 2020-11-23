@@ -7,7 +7,7 @@ try { // On essaie de faire des choses
             listPosts();
         }
         elseif ($_GET['action'] == 'post') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (isset($_GET['id_post']) && $_GET['id_post'] > 0) {
                 post();
             }
             else {
@@ -16,9 +16,9 @@ try { // On essaie de faire des choses
             }
         }
         elseif ($_GET['action'] == 'addComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+            if (isset($_GET['id_post']) && $_GET['id_post'] > 0) {
+                if (!empty($_POST['author']) && !empty($_POST['comment_text'])) {
+                    addComment($_GET['id_post'], $_POST['author'], $_POST['comment_text']);
                 }
                 else {
                     // Autre exception
@@ -27,7 +27,7 @@ try { // On essaie de faire des choses
             }
             else {
                 // Autre exception
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Aucun identifiants de billet envoyé');
             }
         }
     }

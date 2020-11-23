@@ -7,17 +7,17 @@
         <div class="news">
             <h3>
                 <?= htmlspecialchars($post['title']) ?>
-                <em>le <?= $post['creation_date_fr'] ?></em>
+                <em>le <?= $post['date_post_fr'] ?></em>
             </h3>
             
             <p>
-                <?= nl2br(htmlspecialchars($post['content'])) ?>
+                <?= nl2br(htmlspecialchars($post['text_post'])) ?>
             </p>
         </div>
 
         <h2>Commentaires</h2>
 
-        <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+        <form action="index.php?action=addComment&amp;id=<?= $post['id_post'] ?>" method="post">
                 <div>
                     <label for="author">Auteur</label><br />
                     <input type="text" id="author" name="author" />
@@ -36,7 +36,7 @@
         {
         ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?>(<a href="" id="modifyComment">modifier</a>)</p>
-            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
         <?php
         }
         ?>
