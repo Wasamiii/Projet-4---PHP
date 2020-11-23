@@ -1,5 +1,3 @@
-<?php $title = '';?>
-
 <?php ob_start();?>
 
 <form method="formsend">
@@ -20,3 +18,4 @@
 
 
 <?php  $menu = ob_get_clean();?>
+<?php require('view/frontend/template.php'); ?>
