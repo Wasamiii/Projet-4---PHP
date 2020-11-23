@@ -17,9 +17,9 @@ function post()
     $postManager = new Wamp\www\model\PostManager();
     $commentManager = new Wamp\www\model\CommentManager();
 
-    $post = $postManager->getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
-    $modifyComment = $commentManager->getComments($_GET['id']);
+    $post = $postManager->getPost($_GET['id_post']);
+    $comments = $commentManager->getComments($_GET['id_post']);
+    $modifyComment = $commentManager->getComments($_GET['id_post']);
 
     require('view/frontend/postView.php');
 }
