@@ -1,11 +1,11 @@
 <?php 
-
-require_once('manager.php');
+namespace Wamp\www\model;
+require_once('model/manager.php');
 require_once('sigin.php');
+//!cela ne fait rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
 
 class Login extends Manager
 {
-    // no object temporary just structure
     public function getlog(){
         if(isset($_POST['login'])){
             $pseudo = $_POST['pseudo'];

@@ -1,8 +1,10 @@
 <?php
+namespace Wamp\www\model;
+require_once('model/manager.php');
 
-require_once('manager.php');
-
-class Singin extends Manager{
+//!cela ne fait rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
+class Singin extends Manager 
+{
     
     function postsigin(){
         if(isset($_POST['sigin'])){
