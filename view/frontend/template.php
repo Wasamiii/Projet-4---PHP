@@ -4,13 +4,12 @@
         <meta charset="utf-8" />
         <title><?= $title ?></title>
         <link rel="stylesheet" href="public\CSS\style.css"/>
-    </head>
-        
+    </head> 
     <body>
-        <?= $menu ?>
+        <?= require("menu.php") ?>
         <?= $content ?>
     </body>
     <footer>
-    <?= $footer ?>  
+    <?= require("footer.php") ?>  
     </footer>
 </html>
