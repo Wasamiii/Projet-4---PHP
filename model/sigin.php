@@ -1,8 +1,9 @@
 <?php
 namespace Wamp\www\model;
-require_once('model/manager.php');
+require_once('model/Manager.php');
 
 //!cela ne fait rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
+// * * L'inscription sera sur une autre pas et un bouton redirigera dessus
 class Singin extends Manager 
 {
     
@@ -19,7 +20,7 @@ class Singin extends Manager
                 if($password == $cpassword){
                     $pass_hache = password_hash($password, PASSWORD_DEFAULT);
 
-                            $req = $db->prepare('INSERT INTO membres(pseudo, password, email) VALUES(:pseudo, :password, :email)');
+                            $req = $db->prepare('INSERT INTO members(pseudo, password, email) VALUES(:pseudo, :password, :email)');
                             $req->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,

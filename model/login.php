@@ -1,6 +1,6 @@
 <?php 
 namespace Wamp\www\model;
-require_once('model/manager.php');
+require_once('model/Manager.php');
 require_once('sigin.php');
 //!cela ne fait rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
 
@@ -28,7 +28,7 @@ class Login extends Manager
                 if ($isPasswordCorrect) {
                     $_SESSION['id'] = $resultat['id'];
                     $_SESSION['pseudo'] = $pseudo;
-                    // echo 'Vous êtes connecté sous le pseudo de : '. $_SESSION['pseudo'].' !';
+                    echo 'Bienvenu  '. $_SESSION['pseudo'].' !';
                 
                 if(isset($_POST['cnxauto'])){
                     setcookie('pseudo', $resultat['pseudo'], time()+(5*60),null,null,false,true);
