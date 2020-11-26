@@ -29,7 +29,6 @@ function addComment($postId, $author, $comment)
     $commentManager = new Wamp\www\model\CommentManager();
 
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
-
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
@@ -43,7 +42,7 @@ function modifyComment($postId, $author, $modifyComment)
 
     $affecteModify = $commentManager->modifyComment($postId, $author,$modifyComment);
 
-    if($affecteModify == false){
+    if($affecteModify === false){
         throw new Exception('Impossible de modifier le commentaire ! ');
     }
     else{

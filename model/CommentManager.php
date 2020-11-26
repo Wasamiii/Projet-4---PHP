@@ -1,5 +1,8 @@
 <?php
 namespace Wamp\www\model;
+
+use Exception;
+
 require_once("model/Manager.php");
 class CommentManager extends Manager
 {
@@ -15,9 +18,8 @@ class CommentManager extends Manager
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('INSERT INTO comments(comment_id, authors, comment_text, comment_date) VALUES(?, ?, ?, NOW())');
+        $comments = $db->prepare('INSERT INTO comments(id_post, authors, comment_text, comment_date) VALUES(?, ?, ?, NOW())');
         $affectedLines = $comments->execute(array($postId, $author, $comment));
-
         return $affectedLines;
     }
     public function modifyComment($postId, $author, $modifyComment){
