@@ -6,10 +6,10 @@
         <link rel="stylesheet" href="public\CSS\style.css"/>
     </head> 
     <body>
-        <?= require("menu.php") ?>
+        <?php require("menu.php")?>
         <?= $content ?>
     </body>
     <footer>
-    <?= require("footer.php") ?>  
+    <?php require("footer.php")?>  
     </footer>
 </html>
