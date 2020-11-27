@@ -3,6 +3,7 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/sigin.php');
 
 function listPosts()
 {
@@ -48,4 +49,10 @@ function modifyComment($postId, $author, $modifyComment)
     else{
         header('Location: index.php?action=post&id='.$postId);
     }
+}
+
+
+function postsigin(){
+    $sigin = new Wamp\www\model\Singin();
+
 }
