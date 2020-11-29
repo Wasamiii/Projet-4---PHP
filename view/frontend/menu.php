@@ -9,6 +9,6 @@
         <input type="lpassword" name="lpassword"></br>
         <input type="checkbox" name="cnxauto" value="connexion auto"><p id="connectauto">Connexion auto</p></br>
         <input type="submit" value="connexion" name="login"></br>
-        <a href="view/frontend/siginView.php">Inscription</a>
+        <a href="view/frontend/signupView.php">Inscription</a>
         </div>
 </form>

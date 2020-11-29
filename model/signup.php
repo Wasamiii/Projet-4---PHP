@@ -2,12 +2,13 @@
 namespace Wamp\www\model;
 require_once('model/Manager.php');
 
-//!cela ne fait rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
-// * * L'inscription sera sur une autre page et un bouton redirigera dessus
+//!cela n'envoi rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
+//* faire en sorte que cela fasse un envoi à la table members
 class Singin extends Manager 
 {
     
     function postsigin(){
+        
         if(isset($_POST['sigin'])){
             $pseudo = $_POST['pseudo'];
             $email = $_POST['email'];
