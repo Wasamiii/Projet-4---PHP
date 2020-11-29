@@ -7,7 +7,7 @@ require_once('sigin.php');
 class Login extends Manager
 {
     public function getlog(){
-        if(isset($_POST['login'])){
+        if(isset($_POST['signin'])){
             $pseudo = $_POST['pseudo'];
             $password = $_POST['password'];
             //  Récupération de l'utilisateur et de son pass hashé
