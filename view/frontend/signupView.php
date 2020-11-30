@@ -1,4 +1,4 @@
-//* Faire en sorte qu'il y ai un envoi à la table members
+
 <form method="formsend">
     <div>
         <p>Inscription</p>
@@ -10,6 +10,6 @@
         <input type="password" name="password" placeholder="password"></br>
         <label for="cpassword">Confirmer mot de Passe: </label>
         <input type="password" name="cpassword"></br>        
-        <input type="submit" name="sigin">
+        <input type="submit" name="signup">
         </div>
 </form>

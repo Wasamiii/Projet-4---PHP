@@ -3,7 +3,7 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-require_once('model/sigin.php');
+require_once('model/signup.php');
 
 function listPosts()
 {
@@ -52,7 +52,13 @@ function modifyComment($postId, $author, $modifyComment)
 }
 
 
-function postsigin(){
-    $sigin = new Wamp\www\model\Singin();
-
+function postsigup(){
+    $register = new Wamp\www\model\Singup();
+    $singup = $register->postsignup();
+    if($register = false){
+        throw new Exception('Impossibilité de s\'inscrire pour l\'instant');
+        
+    }else{
+        header('Location: index.php');
+    }
 }
