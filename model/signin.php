@@ -1,7 +1,7 @@
 <?php 
 namespace Wamp\www\model;
 require_once('model/Manager.php');
-require_once('sigin.php');
+require_once('signup.php');
 //!cela ne fait rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
 
 class Login extends Manager

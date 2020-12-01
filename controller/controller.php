@@ -51,6 +51,10 @@ function modifyComment($postId, $author, $modifyComment)
     }
 }
 
+function signup(){
+    $sign = new Wamp\www\model\Singup();
+    require('view/frontend/signupView.php');
+}
 
 function postsigup(){
     $register = new Wamp\www\model\Singup();

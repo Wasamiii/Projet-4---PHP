@@ -1,5 +1,5 @@
 
-<form method="formsend">
+<form method="post" action="index.php?action=signup&amp;id=<?= $post['members_id'] ?>">
     <div>
         <p>Inscription</p>
         <label for="pseudo">Pseudo: </label>
