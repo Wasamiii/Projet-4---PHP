@@ -1,12 +1,12 @@
-<form method="post" action="index.php?action=getlog&amp;id=<?= $pseudo['members_id'] ?>">
+<form method="post" action="index.php?action=getlog">
         </br>
         <div>
         <p>Connexion</p>
         <label for="lemail">Email: </label>
-        <input type="lemail" name="lemail"></br>
+        <input type="lemail" name="lemail" required></br>
         <label for="lpassword">Mot de passe: </label>
-        <input type="lpassword" name="lpassword"></br>
-        <input type="checkbox" name="cnxauto" value="connexion auto"><p id="connectauto">Connexion auto</p></br>
+        <input type="lpassword" name="lpassword" required></br>
+        <label for="checkbox"><input type="checkbox" name="cnxauto" value="connexion auto">Connexion Auto</label></br>
         <input type="submit" value="connexion" name="signin"></br>
         <a href="index.php?action=signup">Inscription</a>
         </div>
