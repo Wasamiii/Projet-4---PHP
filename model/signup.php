@@ -20,7 +20,7 @@ class Singup extends Manager
                 
                 if($password == $cpassword){
                     $pass_hache = password_hash($password, PASSWORD_DEFAULT);
-                            $register = $db->prepare('INSERT INTO members(pseudo, password, email,members_date) VALUES(:pseudo, :password, :email, NOW())');
+                            $register = $db->prepare('INSERT INTO members(pseudo, password, email,members_date,admin) VALUES(:pseudo, :password, :email, NOW())',0);
                             $register->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,
