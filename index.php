@@ -31,10 +31,11 @@ try { // On essaie de faire des choses
                 // Autre exception
                 throw new Exception('Aucun identifiants de billet envoyé');
             }
-        }elseif(isset($_GET['action'])){
-            if($_GET['action']== 'signup'){
+        }elseif($_GET['action']== 'signup'){
                 signup();
-            }
+        }elseif($_GET['action'] == 'validSignup'){
+            
+                postsignup();
         }
     }
     else {
