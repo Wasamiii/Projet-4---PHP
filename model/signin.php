@@ -5,7 +5,7 @@ require_once('signup.php');
 //!cela ne fait rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
 
 class Login extends Manager
-{
+{/*à déplacer dans le controller.php tout sauf la partie $req qui va aller dans signup.php*/
     public function getlog(){
         if(isset($_POST['signin'])){
             $pseudo = $_POST['pseudo'];
@@ -21,23 +21,24 @@ class Login extends Manager
             
             if (!$resultat)
             {
-                echo 'Mauvais identifiant ou mot de passe !';
+                echo 'Mauvais identifiant !';
             }
             else
             {
                 if ($isPasswordCorrect) {
                     $_SESSION['id'] = $resultat['id'];
                     $_SESSION['pseudo'] = $pseudo;
+                    $_SESSION['admin']= $resultat['admin'];
                     echo 'Bienvenu  '. $_SESSION['pseudo'].' !';
                 
                 if(isset($_POST['cnxauto'])){
-                    setcookie('pseudo', $resultat['pseudo'], time()+(5*60),null,null,false,true);
-                    setcookie('pass_hache', $resultat['password'], time() + (5*60),null,null,false,true);
+                    // setcookie('pseudo', $resultat['pseudo'], time()+(5*60),null,null,false,true);
+                    // setcookie('pass_hache', $resultat['password'], time() + (5*60),null,null,false,true);
                 }else{
                     echo "Pas de cookie enregistré";
                 }
             }else {
-                    echo 'Mauvais identifiant ou mot de passe !';
+                    echo 'Mauvais mot de passe !';
                 }
             }
         }
