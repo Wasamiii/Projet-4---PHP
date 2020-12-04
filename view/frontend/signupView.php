@@ -1,5 +1,4 @@
-
-<form method="post" action="index.php?action=signup&amp;id=<?= $signup['members_id'] ?>">
+<form action="index.php?action=validSignup" method="post">
     <div>
         <p>Inscription</p>
         <label for="pseudo">Pseudo: </label>
@@ -10,7 +9,7 @@
         <input type="password" name="password" placeholder="password"required></br>
         <label for="cpassword">Confirmer mot de Passe: </label>
         <input type="password" name="cpassword"required></br>        
-        <input type="submit" name="signup">
+        <input type="submit" name="inscription" value="s'inscrire">
         </div>
 </form>
 <div>

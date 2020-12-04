@@ -1,5 +1,4 @@
-<form method="post" action="index.php?action=getlog">
-        </br>
+<form action="index.php?action=getlog" method="post">
         <div>
         <p>Connexion</p>
         <label for="lemail">Email: </label>
