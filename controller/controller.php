@@ -56,10 +56,26 @@ function signup(){
     require('view/frontend/signupView.php');
 }
 
-function postsigup(){
+function postsignup(){
     $register = new Wamp\www\model\Singup();
-    $singup = $register->postsignup();
-    if($register = false){
+    if(isset($_POST['inscription'])){
+        $pseudo = $_POST['pseudo'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $cpassword = $_POST['cpassword'];
+        extract($_POST);
+
+        if(!empty($password) && !empty($cpassword) && !empty($email) && !empty($pseudo)){
+            
+            if($password == $cpassword){
+                $pass_hache = password_hash($password, PASSWORD_DEFAULT);
+                $signup = $register->postsignup($pseudo,$email,$pass_hache);
+            }else{
+                echo "Les mots de passe sont différents !";
+                }
+            }
+    }
+    if($signup = false){
         throw new Exception('Impossibilité de s\'inscrire pour l\'instant');
         
     }else{
