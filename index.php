@@ -31,7 +31,7 @@ try { // On essaie de faire des choses
                 // Autre exception
                 throw new Exception('Aucun identifiants de billet envoyé');
             }
-        }elseif($_GET['action']== 'signup'){
+        }elseif($_GET['action']== 'members'){
                 signup();
         }elseif($_GET['action'] == 'validSignup'){
             

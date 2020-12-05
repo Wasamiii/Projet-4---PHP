@@ -7,6 +7,6 @@
         <input type="lpassword" name="lpassword" required></br>
         <label for="checkbox"><input type="checkbox" name="cnxauto" value="connexion auto">Connexion Auto</label></br>
         <input type="submit" value="connexion" name="signin"></br>
-        <a href="index.php?action=signup">Inscription</a>
+        <a href="index.php?action=members">Inscription</a>
         </div>
 </form>

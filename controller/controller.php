@@ -3,7 +3,7 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-require_once('model/signup.php');
+require_once('model/members.php');
 
 function listPosts()
 {
@@ -52,12 +52,12 @@ function modifyComment($postId, $author, $modifyComment)
 }
 
 function signup(){
-    $sign = new Wamp\www\model\Singup();
+    $sign = new Wamp\www\model\Members();
     require('view/frontend/signupView.php');
 }
 
 function postsignup(){
-    $register = new Wamp\www\model\Singup();
+    $register = new Wamp\www\model\Members();
     if(isset($_POST['inscription'])){
         $pseudo = $_POST['pseudo'];
         $email = $_POST['email'];
@@ -75,6 +75,7 @@ function postsignup(){
                 }
             }
     }
+    //à modifier en fonction des différentes condition 2 pseudo identiques on retourne faux 2 champ mdp différent retourne faux aussi 
     if($signup = false){
         throw new Exception('Impossibilité de s\'inscrire pour l\'instant');
         
