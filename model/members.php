@@ -21,7 +21,7 @@ class Members extends Manager
     }
     public function getsignup($pseudo){
         $db = $this->dbConnect();
-        $verifpseudo = $db->prepare('SELECT pseudo FROM members WHERE pseudo=?');
+        $verifpseudo = $db->prepare('SELECT pseudo FROM members WHERE pseudo = ?');
         $verifpseudo -> execute(array($pseudo));
         $count = $verifpseudo -> rowCount();
         return $count;
