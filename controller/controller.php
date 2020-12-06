@@ -66,7 +66,7 @@ function postsignup(){
         extract($_POST);
 
         if(!empty($password) && !empty($cpassword) && !empty($email) && !empty($pseudo)){
-            
+            //2 champ mdp différent retourne faux aussi 
             if($password == $cpassword){
                 $pass_hache = password_hash($password, PASSWORD_DEFAULT);
                 $signup = $register->postsignup($pseudo,$email,$pass_hache);
@@ -74,12 +74,26 @@ function postsignup(){
                 echo "Les mots de passe sont différents !";
                 }
             }
-    }
-    //à modifier en fonction des différentes condition 2 pseudo identiques on retourne faux 2 champ mdp différent retourne faux aussi 
+        }
+        //à modifier en fonction des différentes condition 2 pseudo identiques on retourne faux 
     if($signup = false){
         throw new Exception('Impossibilité de s\'inscrire pour l\'instant');
         
     }else{
         header('Location: index.php');
     }
+}
+function verifPseudo($pseudo){
+    $verifpseudo = new Wamp\www\model\Members();
+    if(isset($_POST['inscription'])){
+        $pseudo = $_POST['pseudo'];
+        $pseudos = $verifpseudo -> getsignup($pseudo);
+        
+        if($pseudos == 0){
+            echo "Pseudo disponible";
+        }else{
+            throw new Exception('Pseudo non disponible');
+        }
+    }
+
 }
