@@ -26,6 +26,14 @@ class Members extends Manager
         $count = $verifpseudo -> rowCount();
         return $count;
     }
+    public function getlogin(){
+        $db = $this->dbConnect();
+        $pseudo = $_POST['pseudo'];
+        $req = $db->prepare('SELECT * FROM members WHERE pseudo = :pseudo');
+            $req->execute(['pseudo' => $pseudo]);
+            $resultat = $req->fetch();
+            return $resultat;
+    }
 }
 
 ?>
