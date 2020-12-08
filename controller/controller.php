@@ -56,7 +56,8 @@ function signup(){
     require('view/frontend/signupView.php');
 }
 
-function postsignup(){
+function postsignup()
+{
     $register = new Wamp\www\model\Members();
     if(isset($_POST['inscription'])){
         $pseudo = $_POST['pseudo'];
@@ -83,7 +84,8 @@ function postsignup(){
         header('Location: index.php');
     }
 }
-function verifPseudo($pseudo){
+function verifPseudo($pseudo)
+{
     $verifpseudo = new Wamp\www\model\Members();
     if(isset($_POST['inscription'])){
         $pseudo = $_POST['pseudo'];
@@ -95,5 +97,48 @@ function verifPseudo($pseudo){
             throw new Exception('Pseudo non disponible');
         }
     }
-
+}
+function verifyLogin()
+{
+    $verifylogin = new \Wamp\www\model\Members();
+    if(isset($_POST['signin'])){
+        $pseudo = $_POST['pseudo'];
+        $password = $_POST['password'];
+        $resultat = $verifylogin -> getlogin();
+        // Comparaison du pass envoyé via le formulaire avec la base
+        $isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
+            
+        if (!$resultat)
+        {
+            echo 'Mauvais identifiant !';
+        }
+        else
+        {
+            if ($isPasswordCorrect) {
+                $_SESSION['id'] = $resultat['id'];
+                $_SESSION['pseudo'] = $pseudo;
+                $_SESSION['admin']= $resultat['admin'];
+                echo 'Bienvenu  '. $_SESSION['pseudo'].' !';
+            
+            if(isset($_POST['cnxauto'])){
+                // setcookie('pseudo', $resultat['pseudo'], time()+(5*60),null,null,false,true);
+                // setcookie('pass_hache', $resultat['password'], time() + (5*60),null,null,false,true);
+            }else{
+                echo "Pas de cookie enregistré";
+            }
+        }else {
+                echo 'Mauvais mot de passe !';
+            }
+        }
+    }
+    if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+    {
+        echo 'Bonjour ' . $_SESSION['pseudo'];
+    }else{
+        if(isset($_COOKIE['pseudo'])){
+            echo "Bonjour : " . $_COOKIE['pseudo'];
+        }else{
+            echo 'erreur pas de session ni de cookie.';
+        }
+    }
 }
