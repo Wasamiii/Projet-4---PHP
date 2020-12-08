@@ -33,11 +33,13 @@ try { // On essaie de faire des choses
             }
         }elseif($_GET['action']== 'members'){
                 signup();
-                verifyLogin();
+                
         }elseif($_GET['action'] == 'validSignup'){
                 $pseudo = $_POST['pseudo'];
                 verifPseudo($pseudo);
                 postsignup();
+        }elseif($_GET['action'] =='getlog'){
+                verifyLogin();
         }
     }
     else {
