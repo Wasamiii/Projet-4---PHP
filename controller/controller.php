@@ -115,7 +115,7 @@ function verifyLogin()
         else
         {
             if ($isPasswordCorrect) {
-                $_SESSION['id'] = $resultat['id'];
+                $_SESSION['id'] = $resultat['members_id'];
                 $_SESSION['pseudo'] = $pseudo;
                 $_SESSION['admin']= $resultat['admin'];
                 echo 'Bienvenu  '. $_SESSION['pseudo'].' !';
