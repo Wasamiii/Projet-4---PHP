@@ -1,6 +1,6 @@
 <?php
-// session_start();
-// $_SESSION['id'] = 2;
+session_start();
+
 require('controller/controller.php');
 
 try { // On essaie de faire des choses
@@ -40,6 +40,8 @@ try { // On essaie de faire des choses
                 postsignup();
         }elseif($_GET['action'] =='getlog'){
                 verifyLogin();
+        }elseif($_GET['action'] == 'disconnect'){
+            session_destroy();
         }
     }
     else {

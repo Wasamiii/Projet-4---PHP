@@ -7,6 +7,8 @@
         <input type="password" name="password" required></br>
         <label for="cnxauto"><input type="checkbox" name="cnxauto" value="connexion auto">Connexion Auto</label></br>
         <input type="submit" value="connexion" name="signin"></br>
+        <a href="index.php?action=disconnect">Deconnection</a></br>
+        </br>
         <a href="index.php?action=members">Inscription</a>
         </div>
 </form>

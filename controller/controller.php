@@ -119,6 +119,7 @@ function verifyLogin()
                 $_SESSION['pseudo'] = $pseudo;
                 $_SESSION['admin']= $resultat['admin'];
                 echo 'Bienvenu  '. $_SESSION['pseudo'].' !';
+                echo 'Tu portera l\'id suivant : '.$_SESSION['id'];
             
             if(isset($_POST['cnxauto'])){
                 // setcookie('pseudo', $resultat['pseudo'], time()+(5*60),null,null,false,true);
