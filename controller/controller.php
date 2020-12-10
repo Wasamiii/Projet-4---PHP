@@ -16,11 +16,9 @@ function listPosts()
 function post()
 {
     $postManager = new Wamp\www\model\PostManager();
-    $commentManager = new Wamp\www\model\CommentManager();
-
+    $commentManager = new Wamp\www\model\CommentManager(); 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
-    $modifyComment = $commentManager->getComments($_GET['id']);
 
     require('view/frontend/postView.php');
 }
@@ -118,8 +116,7 @@ function verifyLogin()
                 $_SESSION['id'] = $resultat['members_id'];
                 $_SESSION['pseudo'] = $pseudo;
                 $_SESSION['admin']= $resultat['admin'];
-                echo 'Bienvenu  '. $_SESSION['pseudo'].' !';
-                echo 'Tu portera l\'id suivant : '.$_SESSION['id'];
+
             
             if(isset($_POST['cnxauto'])){
                 // setcookie('pseudo', $resultat['pseudo'], time()+(5*60),null,null,false,true);
@@ -132,14 +129,5 @@ function verifyLogin()
             }
         }
     }
-    if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
-    {
-        echo 'Bonjour ' . $_SESSION['pseudo'];
-    }else{
-        if(isset($_COOKIE['pseudo'])){
-            echo "Bonjour : " . $_COOKIE['pseudo'];
-        }else{
-            echo 'erreur pas de session ni de cookie.';
-        }
-    }
+       
 }
