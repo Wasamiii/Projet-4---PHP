@@ -23,12 +23,10 @@ try { // On essaie de faire des choses
                     addComment($_GET['id'], $_SESSION['id'], $_POST['comment']);
                 }
                 else {
-                    // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
             }
             else {
-                // Autre exception
                 throw new Exception('Aucun identifiants de billet envoyé');
             }
         }elseif($_GET['action']== 'members'){
@@ -40,6 +38,7 @@ try { // On essaie de faire des choses
                 postsignup();
         }elseif($_GET['action'] =='getlog'){
                 verifyLogin();
+                header('Location: index.php');
         }elseif($_GET['action'] == 'disconnect'){
             session_destroy();
             header('Location: index.php');
