@@ -49,7 +49,8 @@ function modifyComment($postId, $author, $modifyComment)
     }
 }
 
-function signup(){
+function signup()
+{
     $sign = new Wamp\www\model\Members();
     require('view/frontend/signupView.php');
 }
@@ -116,7 +117,7 @@ function verifyLogin()
                 $_SESSION['id'] = $resultat['members_id'];
                 $_SESSION['pseudo'] = $pseudo;
                 $_SESSION['admin']= $resultat['admin'];
-
+                header('Location: index.php');
             
             if(isset($_POST['cnxauto'])){
                 // setcookie('pseudo', $resultat['pseudo'], time()+(5*60),null,null,false,true);
@@ -129,5 +130,8 @@ function verifyLogin()
             }
         }
     }
-       
 }
+function disconnect(){
+    session_destroy();
+    header('Location: index.php');
+}   
