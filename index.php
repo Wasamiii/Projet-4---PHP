@@ -2,13 +2,18 @@
 session_start();
 
 require('controller/controller.php');
-
 try { // On essaie de faire des choses
-    if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
+    if(isset($_GET['action'])){
+        $callAction =$_GET['action'];
+
+    }else{
+        $callAction = "";
+    }
+    switch ($callAction) {
+        case 'listPosts':
             listPosts();
-        }
-        elseif ($_GET['action'] == 'post') {
+        break;
+        case 'post':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
             }
@@ -16,8 +21,8 @@ try { // On essaie de faire des choses
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
-        }
-        elseif ($_GET['action'] == 'addComment') {
+        break;
+        case 'addComment': 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['comment'])) {
                     addComment($_GET['id'], $_SESSION['id'], $_POST['comment']);
@@ -29,24 +34,26 @@ try { // On essaie de faire des choses
             else {
                 throw new Exception('Aucun identifiants de billet envoyé');
             }
-        }elseif($_GET['action']== 'members'){
-                signup();
-                
-        }elseif($_GET['action'] == 'validSignup'){
-                $pseudo = $_POST['pseudo'];
-                verifPseudo($pseudo);
-                postsignup();
-        }elseif($_GET['action'] =='getlog'){
-                verifyLogin();
-                header('Location: index.php');
-        }elseif($_GET['action'] == 'disconnect'){
-            session_destroy();
-            header('Location: index.php');
-        }
-    }else{
-    listPosts();
-    }   
-}
+        break;
+        case 'members':
+            signup();
+        break;
+        case 'validSignup':
+            $pseudo = $_POST['pseudo'];
+            verifPseudo($pseudo);
+            postsignup();
+        break;
+        case 'getlog':
+            verifyLogin();
+        break;
+        case 'disconnect':
+            disconnect();
+        break;    
+        
+        default:
+        listPosts();
+    }
+}   
 catch(Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
 }
