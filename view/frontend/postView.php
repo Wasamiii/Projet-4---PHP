@@ -39,7 +39,7 @@
         while ($comment = $comments->fetch())
         {
         ?>
-            <p><strong><?= htmlspecialchars($comment['authors']) ?></strong> le <?= $comment['comment_date_fr'] ?>(<a href="" id="modifyComment">modifier</a>)</p>
+            <p><strong><?= htmlspecialchars($comment['authors']) ?></strong> le <?= $comment['comment_date_fr'] ?>(<a href="" id="report">Signaler</a>)</p>
             <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
         <?php
         }
