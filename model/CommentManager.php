@@ -1,8 +1,6 @@
 <?php
 namespace Wamp\www\model;
 
-use Exception;
-
 require_once("model/Manager.php");
 class CommentManager extends Manager
 {
