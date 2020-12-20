@@ -37,19 +37,19 @@ function addComment($postId, $author, $comment)
 }
 //à modifier par report(signalement) on à pas besoin de modifieer un commentaire mais juste de le report 
 //dans la table/colonne signalement = 0 ou 1 selon signalement
-function modifyComment($postId, $author, $modifyComment)
-{
-    $commentManager = new Wamp\www\model\CommentManager();
+// function modifyComment($postId, $author, $modifyComment)
+// {
+//     $commentManager = new Wamp\www\model\CommentManager();
 
-    $affecteModify = $commentManager->modifyComment($postId, $author,$modifyComment);
+//     $affecteModify = $commentManager->modifyComment($postId, $author,$modifyComment);
 
-    if($affecteModify === false){
-        throw new Exception('Impossible de modifier le commentaire ! ');
-    }
-    else{
-        header('Location: index.php?action=post&id='.$postId);
-    }
-}
+//     if($affecteModify === false){
+//         throw new Exception('Impossible de modifier le commentaire ! ');
+//     }
+//     else{
+//         header('Location: index.php?action=post&id='.$postId);
+//     }
+// }
 
 function signup()
 {

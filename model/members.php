@@ -2,9 +2,7 @@
 namespace Wamp\www\model;
 require_once('model/Manager.php');
 
-//!cela n'envoi rien c'est juste pour avoir la forme mais mettre login et sigin dans le même fichier
 /* faire en sorte que cela fasse un envoi à la table members*/
-/* a mon avis il faudrais mettre tout dans signupView.php sauf la partie $register qui doit rester ici*/
 class Members extends Manager 
 {
     
