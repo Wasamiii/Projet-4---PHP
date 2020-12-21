@@ -39,7 +39,7 @@
         while ($comment = $comments->fetch())
         {
         ?>
-            <p><strong><?= htmlspecialchars($comment['authors']) ?></strong> le <?= $comment['comment_date_fr'] ?>
+            <p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['comment_date_fr'] ?>
             <?php
             if(isset($_SESSION['id'])){?>
             (<a href="" id="report">Signaler</a>)</p>
