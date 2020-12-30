@@ -42,7 +42,7 @@
             <p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['comment_date_fr'] ?>
             <?php
             if(isset($_SESSION['id'])){?>
-            <a href="" id="report"><i class="far fa-flag">Signaler</i></a></p>
+            <a href="" id="report"><i class="far fa-flag"></i></a></p>
         <?php
         }
         ?>

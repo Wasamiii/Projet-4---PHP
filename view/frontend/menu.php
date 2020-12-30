@@ -1,3 +1,5 @@
+<a href="index.php">Blog</a>
+
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
     {
