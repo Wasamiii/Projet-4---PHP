@@ -1,5 +1,7 @@
 body{
 position: relative;
-width: 1920px;
+height: auto;
+width: 90%;
 background: linear-gradient(180deg, #00C1CD 2.31%, rgba(228, 91, 136, 0.69) 148.01%);
+background-repeat: no-repeat;
 }
