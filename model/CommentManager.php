@@ -26,11 +26,18 @@ class CommentManager extends Manager
         $affectedLines = $comments->execute(array($postId, $author, $comment));
         return $affectedLines;
     }
-    public function modifyComment($postId, $author, $modifyComment){
-        $db = $this ->dbConnect();
-        $modifyComment = $db->prepare('UPDATE commments SET comment(comment_id, authors, comment_text) WHERE `comments`.`id_post` = ?');
-        $affecteModify = $modifyComment->execute(array($postId, $author,$modifyComment));
+    // public function modifyComment($postId, $author, $modifyComment){
+    //     $db = $this ->dbConnect();
+    //     $modifyComment = $db->prepare('UPDATE commments SET comment(comment_id, authors, comment_text) WHERE `comments`.`id_post` = ?');
+    //     $affecteModify = $modifyComment->execute(array($postId, $author,$modifyComment));
 
-        return $affecteModify;
+    //     return $affecteModify;
+    // }
+    public function reportComment()
+    {
+        $db = $this->dbConnect();
+        $report = $db->prepare('SELECT * FROM comments WHERE signalement = 1');
+        $report->execute(array());
+        return $report;
     }
 }
