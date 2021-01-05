@@ -18,7 +18,6 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         <input type="name" name="pseudo" required></br>
         <label for="password">Mot de passe: </label>
         <input type="password" name="password" required></br>
-        <label for="cnxauto"><input type="checkbox" name="cnxauto" value="connexion auto">Connexion Auto</label></br>
         <input type="submit" value="connexion" name="signin"></br>
         </div>
 </form>
