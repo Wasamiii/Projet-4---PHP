@@ -120,15 +120,9 @@ function verifyLogin()
                 $_SESSION['pseudo'] = $pseudo;
                 $_SESSION['admin']= $resultat['admin'];
                 header('Location: index.php');
-            if($_SESSION['admin']= 1){
+            if($_SESSION['admin']= '1'){
                 $commentManager = new Wamp\www\model\CommentManager();
-                $signaltement = $commentManager->reportComment();
-            }
-            if(isset($_POST['cnxauto'])){
-                // setcookie('pseudo', $resultat['pseudo'], time()+(5*60),null,null,false,true);
-                // setcookie('pass_hache', $resultat['password'], time() + (5*60),null,null,false,true);
-            }else{
-                echo "Pas de cookie enregistré";
+                $report = $commentManager->reportComment();
             }
         }else {
                 echo 'Mauvais mot de passe !';
