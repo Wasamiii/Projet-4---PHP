@@ -9,12 +9,12 @@
     </head> 
     <body>
         <?php require("menu.php")?>
-        <textarea id="tinymce">
-    Welcome to TinyMCE!
-  </textarea>
+        
+        <?php if($_SESSION['admin'] == "1"){ ?>
+        <textarea id="tinymce" placeholder="Welcome to TinyMCE!"></textarea>
   <script>
     tinymce.init({
-      selector: 'textarea',
+      selector: '#tinymce',
       menubar: false,
       plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
       toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
@@ -23,6 +23,9 @@
       tinycomments_author: 'Author name',
    });
   </script>
+<?php
+}
+  ?>
         <?= $content ?>
     </body>
     <footer>
