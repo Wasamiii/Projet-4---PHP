@@ -27,10 +27,10 @@ class CommentManager extends Manager
         return $affectedLines;
     }
    
-    public function reportComment()
+    public function reportCommentOnAdmin()
     {
         $db = $this->dbConnect();
-        $report = $db->prepare('SELECT * FROM comments WHERE signalement = 1');
+        $report = $db->prepare('SELECT * FROM comments WHERE signalement = "1"');
         $report->execute(array());
         return $report;
     }
