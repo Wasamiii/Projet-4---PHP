@@ -4,7 +4,14 @@
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
     {
         echo 'Bonjour ' . $_SESSION['pseudo'];?>
-        <a href="index.php?action=disconnect">Deconnection</a></br>
+        <a href="index.php?action=disconnect">Deconnection</a>
+<?php        
+        if($_SESSION['admin'] == "1"){?>
+        <a href="index.php?action=admin">administration</a>
+<?php
+        }
+echo ('</br>');
+?>
 <?php
     }else{
 
