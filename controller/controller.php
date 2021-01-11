@@ -19,7 +19,10 @@ function post()
     $commentManager = new Wamp\www\model\CommentManager(); 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
-
+    if($_SESSION['admin'] === "1"){
+        $commentManager = new Wamp\www\model\CommentManager();
+        $report = $commentManager->reportCommentOnAdmin();
+    }
     require('view/frontend/postView.php');
 }
 
@@ -106,11 +109,8 @@ function verifyLogin()
                 $_SESSION['pseudo'] = $pseudo;
                 $_SESSION['admin']= $resultat['admin'];
                 
+
                 
-                if($_SESSION['admin'] === "1"){
-                    $commentManager = new Wamp\www\model\CommentManager();
-                    $report = $commentManager->reportCommentOnAdmin();
-                }
                 header('Location: index.php');
         }else {
                 echo 'Mauvais mot de passe !';
