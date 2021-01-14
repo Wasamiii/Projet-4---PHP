@@ -49,7 +49,9 @@ try { // On essaie de faire des choses
         case 'disconnect':
             disconnect();
         break;    
-        
+        case 'admin':
+            admin();
+        break;
         default:
         listPosts();
     }
