@@ -122,3 +122,7 @@ function disconnect(){
     session_destroy();
     header('Location: index.php');
 }   
+
+function admin(){
+    require('view/frontend/admin.php');
+}
