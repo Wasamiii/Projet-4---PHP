@@ -18,7 +18,7 @@
         <h2>Commentaires</h2>
         <?php 
         if(isset ($_SESSION['id'])){
-           ?> 
+        ?> 
            <form action="index.php?action=addComment&amp;id=<?= $post['id_post'] ?>" method="post">
                 <div>
                     <label for="comment">Commentaire</label><br />
@@ -29,10 +29,9 @@
                 </div>
             </form>
 
-            <?php
-
-            }
-            ?>
+        <?php
+        }
+        ?>
         
 
         <?php
