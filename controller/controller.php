@@ -38,8 +38,16 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
 //à modifier par report(signalement) on à pas besoin de modifieer un commentaire mais juste de le report 
 //dans la table/colonne signalement = 0 ou 1 selon signalement
+//! non fonctionnel pour l'instant
+function reportComments()
+{
+    $commentManager = new Wamp\www\model\CommentManager();
+    $addReport= $commentManager->updateReport();
+    
+}
 function signup()
 {
     $sign = new Wamp\www\model\Members();
