@@ -48,7 +48,10 @@ try { // On essaie de faire des choses
         break;
         case 'disconnect':
             disconnect();
-        break;    
+        break;
+        case 'report':
+            reportComments();
+        break;   
         case 'admin':
             admin();
         break;
