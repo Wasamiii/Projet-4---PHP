@@ -34,4 +34,12 @@ class CommentManager extends Manager
         $report->execute(array());
         return $report;
     }
+
+    public function updateReport()
+    {
+        $db = $this->dbConnect();
+        $addReport = $db->prepare('UPDATE comments SET signalement = [1]');
+        $addReport->execute(array());
+        return $addReport;
+    }
 }
