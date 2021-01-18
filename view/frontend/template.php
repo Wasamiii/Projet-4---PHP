@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="public/CSS/style.css">
     </head> 
     <body>
-        <?php require("menu.php")?>
+        <?php require_once("menu.php")?>
         <?= $content ?>
     </body>
     <footer>
-    <?php require("footer.php")?>  
+    <?php require_once("footer.php")?>  
     </footer>
 </html>
