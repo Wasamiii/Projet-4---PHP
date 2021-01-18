@@ -42,10 +42,10 @@ function addComment($postId, $author, $comment)
 //à modifier par report(signalement) on à pas besoin de modifieer un commentaire mais juste de le report 
 //dans la table/colonne signalement = 0 ou 1 selon signalement
 //! non fonctionnel pour l'instant
-function reportComments()
+function reportComments($postId,$author,$addReport)
 {
     $commentManager = new Wamp\www\model\CommentManager();
-    $addReport= $commentManager->updateReport();
+    $addReport= $commentManager->updateReport($postId,$author,$addReport);
     
 }
 function signup()

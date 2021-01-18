@@ -50,7 +50,7 @@ try { // On essaie de faire des choses
             disconnect();
         break;
         case 'report':
-            reportComments();
+            reportComments($postId,$author,$addReport);
         break;   
         case 'admin':
             admin();

@@ -30,16 +30,16 @@ class CommentManager extends Manager
     public function reportCommentOnAdmin()
     {
         $db = $this->dbConnect();
-        $report = $db->prepare('SELECT * FROM comments WHERE signalement = "1"');
+        $report = $db->prepare('SELECT * FROM `comments` WHERE `signalement` = 1');
         $report->execute(array());
         return $report;
     }
 
-    public function updateReport()
+    public function updateReport($postId,$author,$addReport)
     {
         $db = $this->dbConnect();
-        $addReport = $db->prepare('UPDATE comments SET signalement = [1]');
-        $addReport->execute(array());
+        $addReport = $db->prepare('UPDATE comments SET comment_id(id_post,author,signalement WHERE `comments`.`signalement`= 1');
+        $addReport->execute(array($postId,$author,$addReport));
         return $addReport;
     }
 }
