@@ -4,13 +4,13 @@
  * TODO si ajouté dans template.php une var admin de la même façon que postView.php cela retourne même problèque que çi-dessus + undefined var $admin dans template.php
  */
  -->
-<?= require("template.php"); ?>
+<?= require_once("view/frontend/template.php") ?>
 <head>
 <script src="https://cdn.tiny.cloud/1/n11767hjwn9rpu0tdqxd0ul2yyve71z7k5rakdrdv0ldvjmc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> 
 <link rel="stylesheet" href="public/CSS/style.css">
 </head>
      
-<?php if($_SESSION['admin'] == "1"){ ?>
+<?php if($_SESSION['admin'] == 1){ ?>
 <textarea id="tinymce" placeholder="Welcome to TinyMCE!"></textarea>
   <script>
     tinymce.init({
