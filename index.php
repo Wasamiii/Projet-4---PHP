@@ -50,10 +50,13 @@ try { // On essaie de faire des choses
             disconnect();
         break;
         case 'report':
-            reportComments($postId,$author,$addReport);
+                reportComments($addReport);
         break;   
         case 'admin':
-            admin();
+            if($_SESSION['admin']== "1"){
+
+                admin();
+            }
         break;
         default:
         listPosts();
