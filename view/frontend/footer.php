@@ -1,1 +1,1 @@
-<i class="fa fa-copyright" aria-hidden="true">  copyright Wansch Erwann</i>
+<i class="fa fa-copyright" aria-hidden="true">  copyright Wasamii</i>
