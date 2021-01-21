@@ -1,6 +1,7 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
+
         <h1>Mon super blog !</h1>
         <p><a href="index.php">Retour à la liste des billets</a></p>
 
@@ -41,7 +42,8 @@
             <p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['comment_date_fr'] ?>
             <?php
             if(isset($_SESSION['id'])){?>
-            <a href="" id="report" action="report"><i class="far fa-flag"></i></a></p>
+            <!-- ceci en est la cause, il n'appel rien et n'est  appelé par rien -->
+            <a  id="idReport" href="index.php?action=report&idComment=<?= $comment["comment_id"]?>&idPost=<?= $post['id_post'] ?>"><i class="far fa-flag"></i></a></p>
         <?php
         }
         ?>

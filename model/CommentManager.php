@@ -7,7 +7,7 @@ class CommentManager extends Manager
     public function getComments($postId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT comments.id_post, comments.authors,members.members_id,members.pseudo, comments.comment_text, 
+        $comments = $db->prepare('SELECT comments.id_post, comments.authors,members.members_id,members.pseudo, comments.comment_text,comments.comment_id,
         DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') 
         AS comment_date_fr 
         FROM comments 
@@ -30,16 +30,16 @@ class CommentManager extends Manager
     public function reportCommentOnAdmin()
     {
         $db = $this->dbConnect();
-        $report = $db->prepare('SELECT * FROM `comments` WHERE `signalement` = 1');
+        $report = $db->prepare('SELECT * FROM `comments` WHERE `comments`.`signalement` = \'1\'');
         $report->execute(array());
         return $report;
     }
 
-    public function updateReport($postId,$author,$addReport)
+    public function updateReport($idReport)
     {
         $db = $this->dbConnect();
-        $addReport = $db->prepare('UPDATE comments SET comment_id(id_post,author,signalement WHERE `comments`.`signalement`= 1');
-        $addReport->execute(array($postId,$author,$addReport));
+        $addReport = $db->prepare('UPDATE `comments` SET `signalement` = \'1\' WHERE comment_id = ?');
+        $addReport->execute(array($idReport));
         return $addReport;
     }
 }

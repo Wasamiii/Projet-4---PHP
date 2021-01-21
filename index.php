@@ -50,12 +50,14 @@ try { // On essaie de faire des choses
             disconnect();
         break;
         case 'report':
-                reportComments($addReport);
+                $idReport = $_GET['idComment'];
+                $idPost = $_GET['idPost'];
+
+                reportComments($idReport,$idPost);
         break;   
         case 'admin':
             if($_SESSION['admin']== "1"){
-
-                admin();
+                admin();    
             }
         break;
         default:

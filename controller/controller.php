@@ -19,10 +19,6 @@ function post()
     $commentManager = new Wamp\www\model\CommentManager(); 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
-    if($_SESSION['admin'] === "1"){
-        $commentManager = new Wamp\www\model\CommentManager();
-        $report = $commentManager->reportCommentOnAdmin();
-    }
     require('view/frontend/postView.php');
 }
 
@@ -38,14 +34,14 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
-
-//à modifier par report(signalement) on à pas besoin de modifieer un commentaire mais juste de le report 
+ 
 //dans la table/colonne signalement = 0 ou 1 selon signalement
 //! non fonctionnel pour l'instant
-function reportComments($postId,$author,$addReport)
+function reportComments($idReport,$postId)
 {
     $commentManager = new Wamp\www\model\CommentManager();
-    $addReport= $commentManager->updateReport($postId,$author,$addReport);
+    $addReport= $commentManager->updateReport($idReport);
+    header('Location: index.php?action=post&id=' . $postId);
     
 }
 function signup()
@@ -132,5 +128,9 @@ function disconnect(){
 }   
 
 function admin(){
+    $postManager = new Wamp\www\model\PostManager(); // Création d'un objet
+    $posts = $postManager->getPosts();
+    $commentManager = new \Wamp\www\model\CommentManager();
+    $reportonAdmin = $commentManager->reportCommentOnAdmin();
     require('view/frontend/admin.php');
 }
