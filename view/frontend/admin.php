@@ -1,7 +1,7 @@
 <?php $title = 'Admin'; ?>
 <?php ob_start(); ?>
 
-<?php if($_SESSION['admin'] == "1"){ ?>
+<?php if($_SESSION['admin'] == "1"){?>
   <?php
   //Envois  Du formulaire titre et tinyMCE en BDD Sur clique bouton Valider 
   ?>
@@ -26,16 +26,41 @@
   <!-- Problème avec postView.php  soit je le met il m'affiche que $post et $comment sont Undefined  soit je le met pas et remplace 
        garde template.php mais il me retourne que $content est Undefined 
   -->
-  <?php
-  //!
-  //afficher les titres des chapitres avec les petit boutons 
-  //$posts 
-  //afficher les commentaires avec les différents boutons modifier et supprimer $reportonAdmin
-  //! trouver le 1 !!!
-  ?>
+
+  <!-- 
+// Partie Titre post
+
+//afficher les titres des chapitres avec les petit boutons 
+//$posts -->
+ <?php 
+while($posts = $postsLister->fetch()){
+?>
+<?=
+  htmlspecialchars($posts['title']) ?>
 <?php
 }
 ?>
-<?php $content = ob_get_clean(); ?>
-<?= require_once("view/frontend/template.php") ?>
-     
+ <?php
+ // Partie Commentaire Signalé
+ 
+ //afficher les commentaires avec les différents boutons modifier et supprimer $reportonAdmin
+ // Pour les différents bouton la corbeille pour annuler (<i class="fas fa-trash-alt"></i>) et pour modifier le texte (<i class="fas fa-edit"></i>)
+
+   while ($report = $reportonAdmin->fetch()){?>
+     <p><strong> <?=
+     $report["comment_text"];
+     ?></strong>
+     </strong>
+     <!-- ceci en est la cause, il n'appel rien et n'est  appelé par rien -->
+     <a  id="idReport" href="index.php?action=report&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="far fa-flag"></i></a></p>
+   <?php
+     }
+   ?>
+     <p><?= nl2br(htmlspecialchars($report['comment_text'])) ?></p>
+<?php
+}
+?> 
+
+<?php $content = ob_get_clean();
+?>
+<?php require_once("view/frontend/template.php") ?>
