@@ -129,7 +129,7 @@ function disconnect(){
 
 function admin(){
     $postManager = new Wamp\www\model\PostManager(); // Création d'un objet
-    $posts = $postManager->getPosts();
+    $postsLister = $postManager->getPosts();
     $commentManager = new \Wamp\www\model\CommentManager();
     $reportonAdmin = $commentManager->reportCommentOnAdmin();
     require('view/frontend/admin.php');
