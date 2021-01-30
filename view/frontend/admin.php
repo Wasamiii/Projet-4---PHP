@@ -2,9 +2,9 @@
 <?php ob_start(); ?>
 
 <?php if($_SESSION['admin'] == "1"){?>
-  <?php
-  //Envois  Du formulaire titre et tinyMCE en BDD Sur clique bouton Valider 
-  ?>
+
+  <!-- Envois  Du formulaire titre et tinyMCE en BDD Sur clique bouton Valider  -->
+  
   <script src="https://cdn.tiny.cloud/1/n11767hjwn9rpu0tdqxd0ul2yyve71z7k5rakdrdv0ldvjmc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <form action="index.php?action=addPost"> 
 <input type="text" id="titlePost" placeholder="Titre">
@@ -35,32 +35,30 @@
  <?php 
 while($posts = $postsLister->fetch()){
 ?>
+<strong>
 <?=
   htmlspecialchars($posts['title']) ?>
-<?php
-}
-?>
+</strong>
+<?php } ?> 
  <?php
  // Partie Commentaire Signalé
  
  //afficher les commentaires avec les différents boutons modifier et supprimer $reportonAdmin
  // Pour les différents bouton la corbeille pour annuler (<i class="fas fa-trash-alt"></i>) et pour modifier le texte (<i class="fas fa-edit"></i>)
 
-   while ($report = $reportonAdmin->fetch()){?>
-     <p><strong> <?=
+   while ($report = $reportonAdmin->fetch()){
+     ?>
+     <p><strong>
+      <?=
      $report["comment_text"];
-     ?></strong>
+     ?>
      </strong>
-     <!-- ceci en est la cause, il n'appel rien et n'est  appelé par rien -->
-     <a  id="idReport" href="index.php?action=report&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="far fa-flag"></i></a></p>
-   <?php
-     }
-   ?>
-     <p><?= nl2br(htmlspecialchars($report['comment_text'])) ?></p>
-<?php
-}
-?> 
+     <!-- <a  id="idReport" href="index.php?action=report&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"> </a> -->
+    <a id="idunReport" href="index.php?action=unreport&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="fas fa-check-square"></i></a>
+    <i class="fas fa-trash-alt"></i></p>
+     <?php } ?> 
+     <p><?= nl2br(htmlspecialchars($report['comment_text']))?></p>
+<?php } ?> 
 
-<?php $content = ob_get_clean();
-?>
+<?php $content = ob_get_clean();?>
 <?php require_once("view/frontend/template.php") ?>

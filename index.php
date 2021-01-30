@@ -54,6 +54,12 @@ try { // On essaie de faire des choses
                 $idPost = $_GET['idPost'];
 
                 reportComments($idReport,$idPost);
+        break;
+        case'unreport':
+            $idunReport = $_GET['idComment'];
+            $idPost = $_GET['idPost'];
+
+            unreportComment($idunReport,$idPost);
         break;   
         case 'admin':
             if($_SESSION['admin']== "1"){

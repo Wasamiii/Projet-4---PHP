@@ -12,7 +12,7 @@ class CommentManager extends Manager
         AS comment_date_fr 
         FROM comments 
         INNER JOIN members ON comments.authors = members.members_id 
-        WHERE comments.id_post = ? 
+        WHERE comments.id_post = ? AND comments.signalement = \'0\'
         ORDER BY comments.comment_date DESC');
         $comments->execute(array($postId));
 
@@ -41,5 +41,12 @@ class CommentManager extends Manager
         $addReport = $db->prepare('UPDATE `comments` SET `signalement` = \'1\' WHERE comment_id = ?');
         $addReport->execute(array($idReport));
         return $addReport;
+    }
+    public function updateToUnreport($idunReport)
+    {
+        $db = $this->dbConnect();
+        $unReport = $db->prepare('UPDATE `comments` SET `signalement` = \'0\' WHERE comment_id = ?');
+        $unReport->execute(array($idunReport));
+        return $unReport;
     }
 }

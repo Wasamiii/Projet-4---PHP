@@ -44,6 +44,14 @@ function reportComments($idReport,$postId)
     header('Location: index.php?action=post&id=' . $postId);
     
 }
+function unreportComment($idunReport,$postId){
+    $commentManager = new Wamp\www\model\CommentManager();
+    $supprReport= $commentManager->updateToUnreport($idunReport);
+    header('Location: index.php?action=post&id=' . $postId);
+}
+
+
+
 function signup()
 {
     $sign = new Wamp\www\model\Members();
