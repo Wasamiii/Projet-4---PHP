@@ -22,4 +22,11 @@ class PostManager extends Manager
 
         return $post;
     }
+    //à modif
+    public function supprPost($idPost){
+        $db = $this->dbConnect();
+        $supprPoster = $db-> prepare('DELETE FROM post WHERE id_post = ?');
+        $supprPoster->execute($idPost);
+        return $supprPoster;
+    }
 }

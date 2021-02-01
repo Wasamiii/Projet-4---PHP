@@ -36,7 +36,6 @@ function addComment($postId, $author, $comment)
 }
  
 //dans la table/colonne signalement = 0 ou 1 selon signalement
-//! non fonctionnel pour l'instant
 function reportComments($idReport,$postId)
 {
     $commentManager = new Wamp\www\model\CommentManager();
@@ -49,9 +48,16 @@ function unreportComment($idunReport,$postId){
     $supprReport= $commentManager->updateToUnreport($idunReport);
     header('Location: index.php?action=post&id=' . $postId);
 }
-
-
-
+  //à modif
+function supressionPost($idPost){
+    $postManager = new Wamp\www\model\PostManager();
+    $supprPost =   $postManager->supprPost($idPost);
+}
+  //à modif
+function supressionComment($idComment){
+    $commentManager = new \Wamp\www\model\CommentManager();
+    $supprComments = $commentManager->supprComment($idComment);
+}
 function signup()
 {
     $sign = new Wamp\www\model\Members();

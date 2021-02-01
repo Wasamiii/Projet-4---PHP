@@ -23,10 +23,6 @@
   <input type="button" value="Valider">
   <input type="button" value="Annuler">
   </form>
-  <!-- Problème avec postView.php  soit je le met il m'affiche que $post et $comment sont Undefined  soit je le met pas et remplace 
-       garde template.php mais il me retourne que $content est Undefined 
-  -->
-
   <!-- 
 // Partie Titre post
 
@@ -38,6 +34,10 @@ while($posts = $postsLister->fetch()){
 <strong>
 <?=
   htmlspecialchars($posts['title']) ?>
+  <!--bouton modifier redirige vers une page à part lorsque validé récuprère le post pour en faire un UPDATE -->
+  <i class="fas fa-edit"></i>
+  <!-- //à modif -->
+  <a id="idsupprPost" href="index.php?action=supprPost&amp;<?=$posts['id_post']?>"><i class="fas fa-trash-alt"></i></a>
 </strong>
 <?php } ?> 
  <?php
@@ -49,15 +49,13 @@ while($posts = $postsLister->fetch()){
    while ($report = $reportonAdmin->fetch()){
      ?>
      <p><strong>
-      <?=
-     $report["comment_text"];
-     ?>
+      <?= $report["pseudo"]; ?>
      </strong>
-     <!-- <a  id="idReport" href="index.php?action=report&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"> </a> -->
     <a id="idunReport" href="index.php?action=unreport&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="fas fa-check-square"></i></a>
-    <i class="fas fa-trash-alt"></i></p>
-     <?php } ?> 
+    <!-- à modif -->
+    <a id="idsupprComment" href="index.php?action=supprComment&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="fas fa-trash-alt"></i></a></p>
      <p><?= nl2br(htmlspecialchars($report['comment_text']))?></p>
+     <?php } ?> 
 <?php } ?> 
 
 <?php $content = ob_get_clean();?>

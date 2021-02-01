@@ -30,7 +30,7 @@ class CommentManager extends Manager
     public function reportCommentOnAdmin()
     {
         $db = $this->dbConnect();
-        $report = $db->prepare('SELECT * FROM `comments` WHERE `comments`.`signalement` = \'1\'');
+        $report = $db->prepare('SELECT * FROM `comments` INNER JOIN members ON comments.authors = members.members_id  WHERE `comments`.`signalement` = \'1\'');
         $report->execute(array());
         return $report;
     }
@@ -48,5 +48,12 @@ class CommentManager extends Manager
         $unReport = $db->prepare('UPDATE `comments` SET `signalement` = \'0\' WHERE comment_id = ?');
         $unReport->execute(array($idunReport));
         return $unReport;
+    }
+    //à modif
+    public function supprComment($idComment){
+        $db = $this->dbConnect();
+        $supprCommenters = $db-> prepare('DELETE FROM comments WHERE comment_id = ? AND `signalement` = \'1\'');
+        $supprCommenters->execute($idComment);
+        return $supprCommenters;
     }
 }

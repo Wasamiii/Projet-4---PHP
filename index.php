@@ -60,7 +60,22 @@ try { // On essaie de faire des choses
             $idPost = $_GET['idPost'];
 
             unreportComment($idunReport,$idPost);
-        break;   
+        break;
+          //à modif $idPost = null via var_dump
+        case 'supprPost':
+            //appele la fonction suppr pour le post
+            var_dump($idPost);
+            $idPost = $_GET['idPost'];
+            supressionPost($idPost);
+        break; 
+          //à modif $suppridcomment = null via var_dump
+        case 'suppprComment':
+            // appele la fonction suppr pour le commentaire
+            var_dump($suppridcomment);
+            $suppridcomment = $_GET['idComment'];
+            $suppridpost = $_GET['idPost'];
+            supressionComment($suppridcomment);
+        break;  
         case 'admin':
             if($_SESSION['admin']== "1"){
                 admin();    
