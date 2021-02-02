@@ -4,11 +4,11 @@
 <?php if($_SESSION['admin'] == "1"){?>
 
   <!-- Envois  Du formulaire titre et tinyMCE en BDD Sur clique bouton Valider  -->
-  
+  <!--//! pas fini -->
   <script src="https://cdn.tiny.cloud/1/n11767hjwn9rpu0tdqxd0ul2yyve71z7k5rakdrdv0ldvjmc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <form action="index.php?action=addPost"> 
+  <form action="index.php?action=addPost" method="post"> 
 <input type="text" id="titlePost" placeholder="Titre">
-<textarea id="tinymce" placeholder="Welcome to TinyMCE!"></textarea>
+<textarea id="&" placeholder="Welcome to TinyMCE!"></textarea>
   <script>
     tinymce.init({
       selector: '#tinymce',
@@ -20,7 +20,7 @@
       tinycomments_author: 'Author name',
    });
   </script>
-  <input type="button" value="Valider">
+  <input type="submit" value="Valider">
   <input type="button" value="Annuler">
   </form>
   <!-- 
@@ -32,12 +32,12 @@
 while($posts = $postsLister->fetch()){
 ?>
 <strong>
-<?=
-  htmlspecialchars($posts['title']) ?>
+<?php
+  echo htmlspecialchars($posts['title']) ?>
   <!--bouton modifier redirige vers une page à part lorsque validé récuprère le post pour en faire un UPDATE -->
   <i class="fas fa-edit"></i>
   <!-- //à modif -->
-  <a id="idsupprPost" href="index.php?action=supprPost&amp;<?=$posts['id_post']?>"><i class="fas fa-trash-alt"></i></a>
+  <a id="idsupprPost" href="index.php?action=supprPost&amp;idPost=<?=$posts['id_post']?>"><i class="fas fa-trash-alt"></i></a>
 </strong>
 <?php } ?> 
  <?php
@@ -53,7 +53,7 @@ while($posts = $postsLister->fetch()){
      </strong>
     <a id="idunReport" href="index.php?action=unreport&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="fas fa-check-square"></i></a>
     <!-- à modif -->
-    <a id="idsupprComment" href="index.php?action=supprComment&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="fas fa-trash-alt"></i></a></p>
+    <a id="idsupprComment" href="index.php?action=suppprComment&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="fas fa-trash-alt"></i></a></p>
      <p><?= nl2br(htmlspecialchars($report['comment_text']))?></p>
      <?php } ?> 
 <?php } ?> 

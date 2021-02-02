@@ -12,7 +12,11 @@ function listPosts()
 
     require('view/frontend/listPostsView.php');
 }
-
+//pas fini
+function adderPost($titlePost,$textPost){
+    $postManager = new Wamp\www\model\PostManager();
+    $addPost = $postManager->addPost($titlePost,$textPost);
+}
 function post()
 {
     $postManager = new Wamp\www\model\PostManager();
@@ -52,11 +56,13 @@ function unreportComment($idunReport,$postId){
 function supressionPost($idPost){
     $postManager = new Wamp\www\model\PostManager();
     $supprPost =   $postManager->supprPost($idPost);
+    header('Location:index.php');
 }
   //à modif
-function supressionComment($idComment){
+function supressionComment($idComment,$idPost){
     $commentManager = new \Wamp\www\model\CommentManager();
-    $supprComments = $commentManager->supprComment($idComment);
+    $supprComments = $commentManager->supprComment($idComment,$idPost);
+    header('Location: index.php?action=post&id=' . $idPost);
 }
 function signup()
 {

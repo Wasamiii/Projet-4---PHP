@@ -43,7 +43,7 @@
             <?php
             if(isset($_SESSION['id'])){?>
             <!-- ceci en est la cause, il n'appel rien et n'est  appelé par rien -->
-            <a  id="idReport" href="index.php?action=report&idComment=<?= $comment["comment_id"]?>&idPost=<?= $post['id_post'] ?>"><i class="far fa-flag"></i></a></p>
+            <a  id="idReport" href="index.php?action=report&idComment=<?= $comment["comment_id"]?>&idPost=<?= $comment['id_post'] ?>"><i class="far fa-flag"></i></a></p>
         <?php
         }
         ?>

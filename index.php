@@ -22,6 +22,12 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         break;
+        //pas fini
+        case 'addPost':
+            if(!empty($_POST['idPost'])){
+                adderPost($_POST['titlePost'],$_POST['tinymce']);
+            }
+        break;
         case 'addComment': 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['comment'])) {
@@ -50,31 +56,27 @@ try { // On essaie de faire des choses
             disconnect();
         break;
         case 'report':
-                $idReport = $_GET['idComment'];
-                $idPost = $_GET['idPost'];
-
-                reportComments($idReport,$idPost);
+            $idReport = $_GET['idComment'];
+            $idPost = $_GET['idPost'];
+            reportComments($idReport,$idPost);
         break;
         case'unreport':
             $idunReport = $_GET['idComment'];
             $idPost = $_GET['idPost'];
-
             unreportComment($idunReport,$idPost);
         break;
           //à modif $idPost = null via var_dump
         case 'supprPost':
             //appele la fonction suppr pour le post
-            var_dump($idPost);
             $idPost = $_GET['idPost'];
             supressionPost($idPost);
         break; 
           //à modif $suppridcomment = null via var_dump
         case 'suppprComment':
             // appele la fonction suppr pour le commentaire
-            var_dump($suppridcomment);
             $suppridcomment = $_GET['idComment'];
-            $suppridpost = $_GET['idPost'];
-            supressionComment($suppridcomment);
+            $idPost = $_GET['idPost'];
+            supressionComment($suppridcomment,$idPost);
         break;  
         case 'admin':
             if($_SESSION['admin']== "1"){

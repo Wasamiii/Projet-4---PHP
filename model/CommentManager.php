@@ -53,7 +53,7 @@ class CommentManager extends Manager
     public function supprComment($idComment){
         $db = $this->dbConnect();
         $supprCommenters = $db-> prepare('DELETE FROM comments WHERE comment_id = ? AND `signalement` = \'1\'');
-        $supprCommenters->execute($idComment);
+        $supprCommenters->execute(array($idComment));
         return $supprCommenters;
     }
 }
