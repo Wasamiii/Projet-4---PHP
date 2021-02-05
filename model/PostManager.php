@@ -8,7 +8,7 @@ class PostManager extends Manager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id_post, title, text_post, DATE_FORMAT(date_post, \'%d/%m/%Y à %Hh%imin%ss\') AS date_post_fr FROM `post` ORDER BY date_post DESC LIMIT 0, 5');
+        $req = $db->query('SELECT id_post, title, text_post, DATE_FORMAT(date_post, \'%d/%m/%Y à %Hh%imin%ss\') AS date_post_fr FROM `post` ORDER BY date_post DESC');
 
         return $req;
     }
@@ -29,11 +29,21 @@ class PostManager extends Manager
         $supprPoster->execute(array($idPost));
         return $supprPoster;
     }
-    //pas fini
+   
     public function addPost($titlePost,$textPost){
         $db=$this->dbConnect();
-        $adderPost = $db->prepare('INSERT INTO post(id_post, title, text_post, date_post) VALUES(?, ?, ?, NOW())');
+        $adderPost = $db->prepare('INSERT INTO post(title, text_post, date_post) VALUES(?, ?, NOW())');
         $adderPost->execute(array($titlePost,$textPost));
         return $adderPost;
     }
+    /*
+    préparation pour la modification
+
+    public function modifyPost(){
+        $db = $this->dbConnect();
+        $modPost = $db->prepare();
+        $modPost->execute(array());
+        return $modPost;
+    }
+    */
 }
