@@ -4,11 +4,10 @@
 <?php if($_SESSION['admin'] == "1"){?>
 
   <!-- Envois  Du formulaire titre et tinyMCE en BDD Sur clique bouton Valider  -->
-  <!--//! pas fini -->
   <script src="https://cdn.tiny.cloud/1/n11767hjwn9rpu0tdqxd0ul2yyve71z7k5rakdrdv0ldvjmc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <form action="index.php?action=addPost" method="post"> 
-<input type="text" id="titlePost" placeholder="Titre">
-<textarea id="&" placeholder="Welcome to TinyMCE!"></textarea>
+<input type="text" name="titlePost" id="titlePost" placeholder="Titre">
+<textarea name="tinymce" id="tinymce" placeholder="Welcome to TinyMCE!"></textarea>
   <script>
     tinymce.init({
       selector: '#tinymce',
@@ -46,7 +45,7 @@ while($posts = $postsLister->fetch()){
  //afficher les commentaires avec les différents boutons modifier et supprimer $reportonAdmin
  // Pour les différents bouton la corbeille pour annuler (<i class="fas fa-trash-alt"></i>) et pour modifier le texte (<i class="fas fa-edit"></i>)
 
-   while ($report = $reportonAdmin->fetch()){
+  while ($report = $reportonAdmin->fetch()){
      ?>
      <p><strong>
       <?= $report["pseudo"]; ?>
@@ -55,7 +54,7 @@ while($posts = $postsLister->fetch()){
     <!-- à modif -->
     <a id="idsupprComment" href="index.php?action=suppprComment&idComment=<?= $report["comment_id"]?>&idPost=<?= $report['id_post'] ?>"><i class="fas fa-trash-alt"></i></a></p>
      <p><?= nl2br(htmlspecialchars($report['comment_text']))?></p>
-     <?php } ?> 
+  <?php } ?> 
 <?php } ?> 
 
 <?php $content = ob_get_clean();?>
