@@ -22,11 +22,10 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         break;
-        //pas fini
         case 'addPost':
-            if(!empty($_POST['idPost'])){
-                adderPost($_POST['titlePost'],$_POST['tinymce']);
-            }
+                if(!empty($_POST['titlePost'])&& !empty($_POST['tinymce'])){
+                    adderPost($_POST['titlePost'],$_POST['tinymce']);
+                }
         break;
         case 'addComment': 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
