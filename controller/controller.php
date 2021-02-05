@@ -12,11 +12,23 @@ function listPosts()
 
     require('view/frontend/listPostsView.php');
 }
-//pas fini
 function adderPost($titlePost,$textPost){
     $postManager = new Wamp\www\model\PostManager();
     $addPost = $postManager->addPost($titlePost,$textPost);
+    if($addPost === false){
+        throw new Exception('Impossible d\'ajouter le post !');
+    }else{
+        header('Location: index.php?action=admin');
+    }
 }
+/*
+préparation pour la modification
+
+function modfierPost(){
+    $postManager = new Wamp\www\model\PostManager();
+    $modPoster = $postManager->modifyPost();
+}
+*/
 function post()
 {
     $postManager = new Wamp\www\model\PostManager();
