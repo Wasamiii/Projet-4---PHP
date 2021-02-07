@@ -23,10 +23,18 @@ try { // On essaie de faire des choses
             }
         break;
         case 'addPost':
-                if(!empty($_POST['titlePost'])&& !empty($_POST['tinymce'])){
-                    adderPost($_POST['titlePost'],$_POST['tinymce']);
-                }
+            if(!empty($_POST['titlePost'])&& !empty($_POST['tinymce'])){
+                adderPost($_POST['titlePost'],$_POST['tinymce']);
+            }
         break;
+        case 'modifyPost':
+
+        break;
+        case 'supprPost':
+             //appele la fonction suppr pour le post
+            $idPost = $_GET['idPost'];
+            supressionPost($idPost);
+        break; 
         case 'addComment': 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['comment'])) {
@@ -38,6 +46,28 @@ try { // On essaie de faire des choses
             }
             else {
                 throw new Exception('Aucun identifiants de billet envoyé');
+            }
+        break;
+        case 'suppprComment':
+            // appele la fonction suppr pour le commentaire
+            $suppridcomment = $_GET['idComment'];
+            $idPost = $_GET['idPost'];
+            supressionComment($suppridcomment,$idPost);
+        break; 
+        case 'report':
+            $idReport = $_GET['idComment'];
+            $idPost = $_GET['idPost'];
+            reportComments($idReport,$idPost);
+        break;
+        case'unreport':
+            $idunReport = $_GET['idComment'];
+            $idPost = $_GET['idPost'];
+            unreportComment($idunReport,$idPost);
+        break;
+ 
+        case 'admin':
+            if($_SESSION['admin']== "1"){
+                admin();    
             }
         break;
         case 'members':
@@ -53,34 +83,6 @@ try { // On essaie de faire des choses
         break;
         case 'disconnect':
             disconnect();
-        break;
-        case 'report':
-            $idReport = $_GET['idComment'];
-            $idPost = $_GET['idPost'];
-            reportComments($idReport,$idPost);
-        break;
-        case'unreport':
-            $idunReport = $_GET['idComment'];
-            $idPost = $_GET['idPost'];
-            unreportComment($idunReport,$idPost);
-        break;
-          //à modif $idPost = null via var_dump
-        case 'supprPost':
-            //appele la fonction suppr pour le post
-            $idPost = $_GET['idPost'];
-            supressionPost($idPost);
-        break; 
-          //à modif $suppridcomment = null via var_dump
-        case 'suppprComment':
-            // appele la fonction suppr pour le commentaire
-            $suppridcomment = $_GET['idComment'];
-            $idPost = $_GET['idPost'];
-            supressionComment($suppridcomment,$idPost);
-        break;  
-        case 'admin':
-            if($_SESSION['admin']== "1"){
-                admin();    
-            }
         break;
         default:
         listPosts();
