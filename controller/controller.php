@@ -21,14 +21,14 @@ function adderPost($titlePost,$textPost){
         header('Location: index.php?action=admin');
     }
 }
-/*
-préparation pour la modification
+
+//préparation pour la modification
 
 function modfierPost(){
     $postManager = new Wamp\www\model\PostManager();
-    $modPoster = $postManager->modifyPost();
+    $modPoster = $postManager->modifyPost($modifyTitlePost,$modifyTextPost);
 }
-*/
+
 function post()
 {
     $postManager = new Wamp\www\model\PostManager();
