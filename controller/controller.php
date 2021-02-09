@@ -28,10 +28,9 @@ function modifyPoster($post){
     $post = $postManager->getPost($_GET['idPost']);
     require('view/frontend/ModifyPosterView.php');
 }
-function modfierPost($modifyTitlePost,$modifyTextPost,$postId){
+function modfierPost($modifyTitlePost,$modifyTextPost,$idPost){
     $postManager = new Wamp\www\model\PostManager();
-    $modPoster = $postManager->modifyPost($modifyTitlePost,$modifyTextPost,$postId);
-    require('view/frontend/ModifyPosterView.php');
+    $modPoster = $postManager->modifyPost($modifyTitlePost,$modifyTextPost,$idPost);
     if($modPoster === false){
         throw new Exception('Impossible de modifier le post !');
     }else{
