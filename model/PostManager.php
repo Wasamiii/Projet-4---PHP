@@ -39,10 +39,10 @@ class PostManager extends Manager
     
     //préparation pour la modification
 
-    public function modifyPost($modifyTitlePost,$modifyTextPost,$postId){
+    public function modifyPost($modifyTitlePost,$modifyTextPost,$idPost){
         $db = $this->dbConnect();
-        $modPost = $db->prepare('UPDATE `post` SET `title` = ?,`text_post`= ?  WHERE id_post = ?');
-        $modPost->execute(array($modifyTitlePost,$modifyTextPost,$postId));
+        $modPost = $db->prepare('UPDATE `post` SET title = ?,text_post= ?,date_post= NOW()  WHERE id_post = ?');
+        $modPost->execute(array($modifyTitlePost,$modifyTextPost,$idPost));
         return $modPost;
     }  
 }
