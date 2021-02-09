@@ -23,10 +23,20 @@ function adderPost($titlePost,$textPost){
 }
 
 //préparation pour la modification
-
-function modfierPost(){
+function modifyPoster($post){
     $postManager = new Wamp\www\model\PostManager();
-    $modPoster = $postManager->modifyPost($modifyTitlePost,$modifyTextPost);
+    $post = $postManager->getPost($_GET['idPost']);
+    require('view/frontend/ModifyPosterView.php');
+}
+function modfierPost($modifyTitlePost,$modifyTextPost,$postId){
+    $postManager = new Wamp\www\model\PostManager();
+    $modPoster = $postManager->modifyPost($modifyTitlePost,$modifyTextPost,$postId);
+    require('view/frontend/ModifyPosterView.php');
+    if($modPoster === false){
+        throw new Exception('Impossible de modifier le post !');
+    }else{
+    // header('Location: index.php?action=admin');
+    }
 }
 
 function post()
