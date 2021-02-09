@@ -27,8 +27,14 @@ try { // On essaie de faire des choses
                 adderPost($_POST['titlePost'],$_POST['tinymce']);
             }
         break;
+        //Faire en 2 actions une pour afficher le formulaire l'autre pour traiter les formulaires
+        case'modifyPoster':
+            $post = $_GET['idPost'];
+            modifyPoster($post);
+        break;
         case 'modifyPost':
-
+            die(var_dump(modfierPost($_POST['modtitlePost'],$_POST['tinymcemod'],$_GET['id'])));
+            modfierPost($_POST['modtitlePost'],$_POST['tinymcemod'],$_GET['id']);
         break;
         case 'supprPost':
              //appele la fonction suppr pour le post
