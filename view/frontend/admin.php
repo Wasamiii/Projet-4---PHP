@@ -34,7 +34,7 @@ while($posts = $postsLister->fetch()){
 <?php
   echo htmlspecialchars($posts['title']) ?>
   <!--bouton modifier redirige vers une page à part lorsque validé récuprère le post pour en faire un UPDATE -->
-  <a id="modifyAll" href="index.php?action=modifyPost&amp;idPost=<?=$posts['id_post']?>"><i class="fas fa-edit"></i></a>
+  <a id="modifyAll" href="index.php?action=modifyPoster&amp;idPost=<?=$posts['id_post']?>"><i class="fas fa-edit"></i></a>
   <!-- //à modif -->
   <a id="idsupprPost" href="index.php?action=supprPost&amp;idPost=<?=$posts['id_post']?>"><i class="fas fa-trash-alt"></i></a>
 </strong>
@@ -58,4 +58,4 @@ while($posts = $postsLister->fetch()){
 <?php } ?> 
 
 <?php $content = ob_get_clean();?>
-<?php require_once("view/frontend/template.php") ?>
+<?php require_once("view/frontend/template.php")?>
