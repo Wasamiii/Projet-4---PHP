@@ -32,16 +32,16 @@ try { // On essaie de faire des choses
             $post = $_GET['idPost'];
             modifyPoster($post);
         break;
-        case 'modifyPost':
-            die(var_dump(modfierPost($_POST['modtitlePost'],$_POST['tinymcemod'],$_GET['id'])));
-            modfierPost($_POST['modtitlePost'],$_POST['tinymcemod'],$_GET['id']);
+        case 'modifyPosting':
+            $idPost = $_GET['idPost'];
+            modfierPost($_POST['modtitlePost'],$_POST['tinymcemod'],$idPost);
         break;
         case 'supprPost':
              //appele la fonction suppr pour le post
             $idPost = $_GET['idPost'];
             supressionPost($idPost);
         break; 
-        case 'addComment': 
+        case 'addComment':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['comment'])) {
                     addComment($_GET['id'], $_SESSION['id'], $_POST['comment']);
