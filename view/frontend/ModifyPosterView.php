@@ -3,8 +3,8 @@
 <?php if($_SESSION["admin"] == "1"){?>
 <script src="https://cdn.tiny.cloud/1/n11767hjwn9rpu0tdqxd0ul2yyve71z7k5rakdrdv0ldvjmc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <form action="index.php?action=modifyPosting&idPost=<?= $post['id_post'] ?>" method="post"> 
-  <input type="text" name="modtitlePost" id="modtitlePost" placeholder="Titre">
-  <textarea name="tinymcemod" id="tinymcemod" placeholder="Welcome to TinyMCE!"></textarea>
+  <input type="text" name="modtitlePost" id="modtitlePost" placeholder="Titre" required>
+  <textarea name="tinymcemod" id="tinymcemod" placeholder="Welcome to TinyMCE!" required></textarea>
     <script>
     tinymce.init({
         selector: 'textarea#tinymcemod',
