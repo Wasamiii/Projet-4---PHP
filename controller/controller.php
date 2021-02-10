@@ -34,7 +34,7 @@ function modfierPost($modifyTitlePost,$modifyTextPost,$idPost){
     if($modPoster === false){
         throw new Exception('Impossible de modifier le post !');
     }else{
-    // header('Location: index.php?action=admin');
+    header('Location: index.php?action=admin');
     }
 }
 
