@@ -1,4 +1,4 @@
-<a href="index.php">Blog</a>
+<a href="index.php"><img src="public/img/icone-d-ecrivain.png"></a>
 
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
