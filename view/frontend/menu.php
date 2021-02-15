@@ -1,4 +1,4 @@
-<a href="index.php" id="logosite"><img src="public/img/icone-d-ecrivain.png" id="logoscriptblog"><p class="logositetext">Jean Forteroche</p></a>
+<a href="index.php" id="logosite"><img src="public/img/1138px-P_author.svg_1.png" id="logoscriptblog"><p class="logositetext">Jean Forteroche</p></a>
 
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
