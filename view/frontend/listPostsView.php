@@ -1,8 +1,7 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
-<p>Derniers billets du blog :</p>
+<h1 id="lastPoster">Derniers billets du blog :</h1>
 
 
 <?php
@@ -10,18 +9,20 @@ while ($data = $posts->fetch())
 {
 ?>
     <div class="news">
-        <h3>
+        <p id="titleposter">
+            
             <?= htmlspecialchars($data['title']) ?>
-            <em>le <?= $data['date_post_fr'] ?></em>
-        </h3>
-        
-        <p>
-            <?= nl2br(htmlspecialchars($data['text_post'])) ?>
-            <br />
-            <em><a href="index.php?action=post&amp;id=<?= $data['id_post'] ?>">Commentaires</a></em>
+            <em class="datepost">le <?= $data['date_post_fr'] ?></em>
         </p>
+        
+        <p class="postscript">
+            <?= nl2br(htmlspecialchars($data['text_post'])) ?>
+            
+        </p>
+        <p id="comments"><em><a href="index.php?action=post&amp;id=<?= $data['id_post'] ?>">Commentaires</a></em></p>
+        <div id="separate"></div>
     </div>
-<?php
+    <?php
 }
 $posts->closeCursor();
 ?>

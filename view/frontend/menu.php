@@ -1,21 +1,22 @@
-<a href="index.php"><img src="public/img/icone-d-ecrivain.png"></a>
+<a href="index.php" id="logosite"><img src="public/img/icone-d-ecrivain.png" id="logoscriptblog"><p class="logositetext">Jean Forteroche</p></a>
 
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
     {
-        echo 'Bonjour ' . $_SESSION['pseudo'];?>
-        <a href="index.php?action=disconnect">Deconnection</a>
+            ?>       
+            <a href="index.php?action=disconnect" id="disconnect">Deconnection</a>
+           
 <?php        
         if($_SESSION['admin'] == "1"){?>
-        <a href="index.php?action=admin">administration</a>
+        <a href="index.php?action=admin" id="administration">administration</a>
 <?php
         }
-echo ('</br>');
-?>
-<?php
-    }else{
 
-    
+?>
+ <p id="bonjourPseudo"><?php echo 'Bonjour ' . $_SESSION['pseudo'];?></p>
+
+ <?php
+    }else{   
 ?>
 
 <form action="index.php?action=getlog" method="post">
