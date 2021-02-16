@@ -12,7 +12,7 @@
         <?php require_once("menu.php")?>
     </header>
     <body>
-        <img src="public/img/Forests_Mountains_Rivers_USA_Alaska_568452_1920x1080.png" id="alaska-img">
+        
         <?=$content?>
     </body>
     <footer>
