@@ -2,8 +2,8 @@
 
 <?php ob_start(); ?>
 
-        <h1>Mon super blog !</h1>
-        <p><a href="index.php">Retour à la liste des billets</a></p>
+        <h1 id="lastPoster">Derniers billets du blog :</h1>
+        <a href="index.php" id="return-ticket-list">Retour à la liste des billets</a>
 
         <div class="news">
             <h3>
