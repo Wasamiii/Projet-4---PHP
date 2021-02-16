@@ -1,1 +1,1 @@
-<div id="group-copyright"><i class="fa fa-copyright" aria-hidden="true"> <p id="copyright"> copyright Wasamii</p></i></div>
+<div id="group-copyright"><i class="fa fa-copyright" aria-hidden="true"> </i><p id="copyright"> copyright Wasamii</p></div>
