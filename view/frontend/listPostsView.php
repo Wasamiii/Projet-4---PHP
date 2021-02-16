@@ -1,6 +1,7 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
+<img src="public/img/Forests_Mountains_Rivers_USA_Alaska_568452_1920x1080.png" id="alaska-img">
 <h1 id="lastPoster">Derniers billets du blog :</h1>
 
 
