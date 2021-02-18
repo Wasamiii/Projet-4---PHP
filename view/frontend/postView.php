@@ -2,31 +2,30 @@
 
 <?php ob_start(); ?>
 
-        <h1 id="lastPoster">Derniers billets du blog :</h1>
+        <h1 class="lastPoster">Derniers billets du blog :</h1>
         <a href="index.php" id="return-ticket-list">Retour à la liste des billets</a>
 
         <div class="news">
-            <h3>
+            <p id="titlePostOnComment">
                 <?= htmlspecialchars($post['title']) ?>
-                <em>le <?= $post['date_post_fr'] ?></em>
-            </h3>
-            
-            <p>
-                <?= nl2br(htmlspecialchars($post['text_post'])) ?>
+                <em class="datepost">le <?= $post['date_post_fr'] ?></em>
             </p>
+            
+            <div id="textPostOnComment">
+                <?= nl2br($post['text_post']) ?>
+            </div>
         </div>
 
-        <h2>Commentaires</h2>
+        <h2 id="labelComment">Commentaires</h2>
         <?php 
         if(isset ($_SESSION['id'])){
         ?> 
            <form action="index.php?action=addComment&amp;id=<?= $post['id_post'] ?>" method="post">
                 <div>
-                    <label for="comment">Commentaire</label><br />
                     <textarea id="comment" name="comment"></textarea>
                 </div>
                 <div>
-                    <input type="submit">
+                    <input type="submit" id="submitComment">
                 </div>
             </form>
 
@@ -34,12 +33,12 @@
         }
         ?>
         
-
+        <div id="group_comment">
         <?php
         while ($comment = $comments->fetch())
         {
         ?>
-            <p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['comment_date_fr'] ?>
+            <p id="pseudoComment"><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> <em class="datepost">le <?= $comment['comment_date_fr'] ?></em>
             <?php
             if(isset($_SESSION['id'])){?>
             <!-- ceci en est la cause, il n'appel rien et n'est  appelé par rien -->
@@ -47,9 +46,10 @@
         <?php
         }
         ?>
-            <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
+            <p class="comment_text"><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
         <?php
         }
         ?>
+        </div>
 <?php $content = ob_get_clean(); ?>
 <?php require_once('view/frontend/template.php'); ?>
