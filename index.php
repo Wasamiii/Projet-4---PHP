@@ -72,7 +72,7 @@ try { // On essaie de faire des choses
         break;
  
         case 'admin':
-            if($_SESSION['admin']== "1"){
+            if(isset($_SESSION['admin']) && $_SESSION['admin'] == "1"){
                 admin();    
             }
         break;
