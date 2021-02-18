@@ -1,8 +1,9 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
-<img src="public/img/Forests_Mountains_Rivers_USA_Alaska_568452_1920x1080.png" id="alaska-img">
-<h1 id="lastPoster">Derniers billets du blog :</h1>
+<div id="background-parallax"  data-type="background" data-speed="3"></div>
+<script src="/public/JS/main.js" type="text/javascript"></script>
+<h1 class="lastPoster">Derniers billets du blog :</h1>
 
 
 <?php
@@ -16,10 +17,10 @@ while ($data = $posts->fetch())
             <em class="datepost">le <?= $data['date_post_fr'] ?></em>
         </p>
         
-        <p class="postscript">
-            <?= nl2br(htmlspecialchars($data['text_post'])) ?>
+        <div class="postscript">
+            <?= nl2br($data['text_post']) ?>
             
-        </p>
+        </div>
         <p id="comments"><em><a href="index.php?action=post&amp;id=<?= $data['id_post'] ?>">Commentaires</a></em></p>
         <div id="separate"></div>
     </div>
