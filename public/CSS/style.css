@@ -88,15 +88,15 @@ p#bonjourPseudo{
     color:#e9e9e9;
 }
 /*Intérieur du body listPoster.php*/
-img#alaska-img{
+div#background-parallax{
+    background-image:url("/public/img/Forests_Mountains_Rivers_USA_Alaska_568452_1920x1080.png");
     width:100%;
-    height:auto;
-    top: -100px;
-    z-index: 0;
+    height:700px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-h1#lastPoster{
+h1.lastPoster{
     font-family: 'Roboto-Bold';
-
     color: rgb(209, 209, 209);
     margin: 1% 0 1% 2%;
 }
@@ -109,13 +109,14 @@ p#titleposter{
     color: rgb(209, 209, 209);
     margin-right: 35%;
 }
+
 em.datepost{
     margin-left:0.8%;
     color: rgb(209, 209, 209);
     font-size: 0.8em;
 }
-p.postscript{
-    margin-left: 5%;
+div.postscript{
+    margin: 0 4.5% 0 5%;
     font-family: "Roboto-Regular";
     color: rgb(209, 209, 209);
 }
@@ -151,24 +152,158 @@ div#separate{
     border-radius: 50px;
 }
 
-
+/*page commentaires*/
 a#return-ticket-list{
     font-family: 'Roboto-Regular';
     color:rgb(209, 209, 209);
+    margin-left: 5%;
 }
+div.news{
+    margin-top: 1.5%;
+}
+p#titlePostOnComment{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-family: "Roboto-Black";
+    font-size: 1.1em;
+    color: rgb(209, 209, 209);
+    margin-left: 2%;
+}
+div#textPostOnComment{
+    margin: 1% 0 3% 3%;
+    font-family: "Roboto-Regular";
+    color: rgb(209, 209, 209);
+}
+h2#labelComment{
+    margin-left: 2%;
+    font-family: "Roboto-Black";
+    color: rgb(209, 209, 209);
+}
+textarea#comment{
+    margin-left: 2%;
+    height: 96px;
+    width: 16%;
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: 5px;
+}
+input#submitComment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 30px;
+    border:3px solid rgb(209, 209, 209);
+    border-radius: 50px;
+    text-decoration: none;
+    color: rgb(209, 209, 209);
+    font-family: "Roboto-Black";
+    background:#4d4d4d;
+    margin-left: 2%;
+}
+input#submitComment:hover{
+    color: #000;
+    background-color: rgb(209, 209, 209);
+    transition: all 0.5s ease-in-out;
+}
+div#group_comment{
+    margin:3% 0 0 2.5%;
+}
+p#pseudoComment{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-family: "Roboto-Black";
+    font-size: 1.1em;
+    color: rgb(209, 209, 209);
+    margin: 1.5% 0 0 0;
+}
+a#idReport{
+    margin-left: 1.5%;
+    color: rgb(209, 209, 209);
+}
+p.comment_text{
+    margin: 0.5% 0 0 1%;
+    font-family: "Roboto-Regular";
+    color: rgb(209, 209, 209);
+}
+/*Partie Admin*/
+h2#createPost{
+    margin: 3% 0 0 1%;
+    font-family: "Roboto-Black";
+    font-size: 1.1em;
+    color: rgb(209, 209, 209);
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
+form#formAdmin{
+    margin: 1.5% 1.5% 0 1.5%;
+    
+}
+input.formPoster{
+    width: 90px;
+    height: 30px;
+    border:3px solid rgb(209, 209, 209);
+    border-radius: 50px;
+    text-decoration: none;
+    color: rgb(209, 209, 209);
+    font-family: "Roboto-Black";
+    background:#4d4d4d;
+    margin: 0.5% 0 0 2%;
+}
+input#titlePost{
+    margin-bottom: 1.5%;
+    border: 0px solid #000;
+    border-radius: 10px;
+}
+input.formPoster:hover{
+    color: #000;
+    background-color: rgb(209, 209, 209);
+    transition: all 0.5s ease-in-out;
+}
+h2#titleOfPost{
+    margin: 1% 0 1% 1%;
+    font-family: "Roboto-Black";
+    color: rgb(209, 209, 209);
+    font-size: 1.1em;
+}
+div#group_post{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-flow: row nowrap;
+    margin: 1% 0 ;
+}
+p#titlePostOnAdmin{
+    font-family: "Roboto-Bold";
+    color: rgb(209, 209, 209);
+    font-size: 1em;
+}
+a#modifyAll,a#idsupprPost{
+    position: relative;
+    margin-left: 0.5%;
+    color:rgb(209, 209, 209);
+}
+h2#TitleCommentOnAdmin{
+    margin: 2% 0 0 1%;
+    font-family: "Roboto-Black";
+    color:rgb(209, 209, 209);
+}
+p#CommentOnAdmin{
+    margin: 1% 0 0 2%;
+}
+p#CommentOnAdmin strong{
+    font-family: "Roboto-Bold";
+    color:rgb(209, 209, 209);
+}
+p#CommentOnAdmin a{
+    margin-left: 0.5%;
+    color:rgb(209, 209, 209);
+}
+p#CommentTextOnAdmin{
+    margin-left: 2.5%;
+    font-family: "Roboto-Regular";
+    color:rgb(209, 209, 209);
+}
 
 
 /*Footer.php for copyright*/
