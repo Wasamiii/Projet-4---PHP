@@ -1,4 +1,4 @@
-<a href="index.php" id="logosite"><img src="public/img/1138px-P_author.svg_1.png" id="logoscriptblog"><p class="logositetext">Jean Forteroche</p></a>
+<a href="index.php" id="logosite"><img src="public/img/45px-P_author.svg_1.png" id="logoscriptblog"><p class="logositetext">Jean Forteroche</p></a>
 
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
@@ -18,19 +18,17 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
  <?php
     }else{   
 ?>
-
-<form action="index.php?action=getlog" method="post">
-        <div>
-        <p>Connexion</p>
-        <label for="pseudo">Pseudo: </label>
-        <input type="name" name="pseudo" required></br>
-        <label for="password">Mot de passe: </label>
-        <input type="password" name="password" required></br>
-        <input type="submit" value="connexion" name="signin"></br>
+<div id="allForm">
+<form action="index.php?action=getlog" method="post" id="connexionForm">
+        <div id="siginDiv">
+        <p id="titleSigin">Connexion:</p>
+        <input type="name" name="pseudo" placeholder="Pseudo" class="inputSigin" required>
+        <input type="password" name="password" placeholder="Mot de passe" class="inputSigin" required>
+        <input type="submit" value="connexion" name="signin" id="connexionSigin">
         </div>
 </form>
-        </br>
-        <a href="index.php?action=members">Inscription</a>
+<a href="index.php?action=members" id="singupLink">Inscription</a>
+</div>
 <?php        
         }
 ?>
