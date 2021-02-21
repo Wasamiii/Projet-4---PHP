@@ -63,15 +63,18 @@ div#allForm{
     flex-direction:row;
     align-items:center;
     flex-shrink: 0;
-    margin: 10px 0;
+    margin: 10px 5% 10px 0;
 }
-
+form#connexionForm{
+    display: flex;
+    align-items: baseline;
+}
 p#titleSigin{
-    margin-right: 1%;
     font-family: "Roboto-Black";
     color:rgb(209, 209, 209);
 }
 input.inputSigin{
+    width: 25%;
     height: 25px;
     border: 1px solid #4d4d4d;
     color: #4d4d4d;
@@ -110,6 +113,7 @@ a#singupLink{
     text-decoration: none;
     color: rgb(209, 209, 209);
     font-family: "Roboto-Black";
+    font-size: 0.87em;
     background:#4d4d4d;
     margin-right: 2%;
 }
@@ -371,7 +375,7 @@ form#Signupview{
 }
 div#contentSignup{
     padding: 2% 5%;
-    margin:10% 0 13.5% 0;
+    margin: 7% 0 10% 0;
     border: 3px solid #4d4d4d;
     border-radius: 5px;
 }
@@ -429,4 +433,13 @@ div p#copyright{
     position: relative;
     left: 5%;
     font-family:'Roboto-Black';
+}
+
+@media screen and (max-width:992px){
+    form#connexionForm{
+        flex-direction: column;
+    }
+    input.inputSigin{
+        width: auto;
+    }
 }
