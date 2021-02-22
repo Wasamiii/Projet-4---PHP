@@ -4,7 +4,7 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/members.php');
-
+//Partie  post
 function listPosts()
 {
     $postManager = new Wamp\www\model\PostManager(); // Création d'un objet
@@ -38,6 +38,11 @@ function modfierPost($modifyTitlePost,$modifyTextPost,$idPost){
     }
 }
 
+function supressionPost($idPost){
+    $postManager = new Wamp\www\model\PostManager();
+    $supprPost =   $postManager->supprPost($idPost);
+    header('Location:index.php');
+}
 function post()
 {
     $postManager = new Wamp\www\model\PostManager();
@@ -59,7 +64,7 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
- 
+//Partie  commmentaire
 //dans la table/colonne signalement = 0 ou 1 selon signalement
 function reportComments($idReport,$postId)
 {
@@ -73,18 +78,14 @@ function unreportComment($idunReport,$postId){
     $supprReport= $commentManager->updateToUnreport($idunReport);
     header('Location: index.php?action=post&id=' . $postId);
 }
-  //à modif
-function supressionPost($idPost){
-    $postManager = new Wamp\www\model\PostManager();
-    $supprPost =   $postManager->supprPost($idPost);
-    header('Location:index.php');
-}
-  //à modif
+
+
 function supressionComment($idComment,$idPost){
     $commentManager = new \Wamp\www\model\CommentManager();
     $supprComments = $commentManager->supprComment($idComment,$idPost);
     header('Location: index.php?action=post&id=' . $idPost);
 }
+//Partie  login/signup
 function signup()
 {
     $sign = new Wamp\www\model\Members();
@@ -167,7 +168,7 @@ function disconnect(){
     session_destroy();
     header('Location: index.php');
 }   
-
+//Partie  admin
 function admin(){
     $postManager = new Wamp\www\model\PostManager(); // Création d'un objet
     $postsLister = $postManager->getPosts();
