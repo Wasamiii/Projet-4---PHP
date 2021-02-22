@@ -29,8 +29,12 @@ try { // On essaie de faire des choses
         break;
         //Faire en 2 actions une pour afficher le formulaire l'autre pour traiter les formulaires
         case'modifyPoster':
-            $post = $_GET['idPost'];
-            modifyPoster($post);
+            if(isset($_SESSION['admin']) && $_SESSION['admin'] == "1"){
+                $post = $_GET['idPost'];
+                modifyPoster($post);
+            }else{
+                header("Location: index.php");
+            }
         break;
         case 'modifyPosting':
             $idPost = $_GET['idPost'];
@@ -74,6 +78,8 @@ try { // On essaie de faire des choses
         case 'admin':
             if(isset($_SESSION['admin']) && $_SESSION['admin'] == "1"){
                 admin();    
+            }else{
+                header("Location: index.php");
             }
         break;
         case 'members':
