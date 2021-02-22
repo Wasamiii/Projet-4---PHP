@@ -143,6 +143,7 @@ a#disconnect:hover,a#administration:hover{
     transition: all 0.5s ease-in-out;
 }
 p#bonjourPseudo{
+    margin-right: 5%;
     font-family:'Roboto-Regular';
     font-size: 1.1em; 
     color:#e9e9e9;
@@ -176,14 +177,14 @@ em.datepost{
     font-size: 0.8em;
 }
 div.postscript{
-    margin: 0 4.5% 0 5%;
+    margin: 1% 4.5% 0 5%;
     font-family: "Roboto-Regular";
     color: rgb(209, 209, 209);
 }
 p#comments{
     display: flex;
     justify-content:flex-end;
-    margin: 0px 5% 15px 0px;
+    margin: 2% 5% 15px 0px;
 
 
 }
@@ -299,6 +300,11 @@ form#formAdmin{
     margin: 1.5% 1.5% 0 1.5%;
     
 }
+input#titlePost{
+    margin-bottom: 1.5%;
+    border: 0px solid #000;
+    border-radius: 10px;
+}
 input.formPoster{
     width: 90px;
     height: 30px;
@@ -309,11 +315,6 @@ input.formPoster{
     font-family: "Roboto-Black";
     background:#4d4d4d;
     margin: 0.5% 0 0 2%;
-}
-input#titlePost{
-    margin-bottom: 1.5%;
-    border: 0px solid #000;
-    border-radius: 10px;
 }
 input.formPoster:hover{
     color: #000;
@@ -364,8 +365,48 @@ p#CommentTextOnAdmin{
     font-family: "Roboto-Regular";
     color:rgb(209, 209, 209);
 }
+/*Partie modify text*/
+form#formModify{
+    margin: 1.5% 1.5% 0 1.5%;
+    
+}
+input#modtitlePost{
+    margin-bottom: 1.5%;
+    border: 0px solid #000;
+    border-radius: 10px;
+}
+input.formPoster{
+    width: 90px;
+    height: 30px;
+    border:3px solid rgb(209, 209, 209);
+    border-radius: 50px;
+    text-decoration: none;
+    color: rgb(209, 209, 209);
+    font-family: "Roboto-Black";
+    background:#4d4d4d;
+    margin: 0.5% 0 0 2%;
+}
+input.formPoster:hover{
+    color: #000;
+    background-color: rgb(209, 209, 209);
+    transition: all 0.5s ease-in-out;
+}
 
-
+div.news{
+    margin: 1.5% 0 0 2%;
+    color: rgb(209, 209, 209);
+}
+h3#modifyTitle{
+    font-family: "Roboto-Bold";
+    font-size: 1em;
+}
+em#modifyDate{
+    font-size: 0.8em;
+}
+div#modifyText{
+    font-family: "Roboto-Regular";
+    margin: 1% 0 5% 1%;
+}
 /*Patie inscription*/
 form#Signupview{
     display:flex;
