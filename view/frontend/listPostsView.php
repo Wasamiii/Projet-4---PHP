@@ -1,5 +1,5 @@
 
-<?php $title = 'Mon blog'; ?>
+<?php $title = 'Billet simple pour l\'Alaska'; ?>
 <script src="/public/JS/main.js" type="text/javascript"></script>
 <?php ob_start(); ?>
 <div id="background-parallax"  data-type="background" data-speed="3"></div>
