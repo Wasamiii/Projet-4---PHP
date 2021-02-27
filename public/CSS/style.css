@@ -123,6 +123,17 @@ a#singupLink:hover{
     transition: all 0.5s ease-in-out;
 }
 /*après connexion*/
+div#groupright{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content:center;
+    align-items:center;
+}
+div#groupButton{
+    display: flex;
+    flex-direction:row;
+    margin-right: 2%;
+}
 a#disconnect,a#administration{
     display:flex;
     justify-content:center;
@@ -136,6 +147,7 @@ a#disconnect,a#administration{
     color: rgb(209, 209, 209);
     font-family: "Roboto-Black";
     background:#4d4d4d;
+    
 }
 a#disconnect:hover,a#administration:hover{
     color: #000;
@@ -168,7 +180,6 @@ p#titleposter{
     font-family: "Roboto-Black";
     font-size: 1.1em;
     color: rgb(209, 209, 209);
-    margin-right: 35%;
 }
 
 em.datepost{
@@ -483,4 +494,31 @@ div p#copyright{
     input.inputSigin{
         width: auto;
     }
+}
+@media screen and (max-width:768px){
+    div#groupbutton{
+        flex-direction: column;
+    }
+
+}
+@media screen and (max-width: 468px){
+    a p.logositetext{
+        font-size: 1em;
+    }
+    
+    a#disconnect,a#administration{
+        display:flex;
+        justify-content:center;
+        flex-shrink: 0;
+        align-items:center;
+        width: 90px;
+        height: 25px;
+        font-family: "Roboto-Black";
+        font-size:0.7em;
+    }
+
+    p#bonjourPseudo{
+        font-size: 0.65em;
+    }
+
 }
