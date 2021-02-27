@@ -1,5 +1,6 @@
 <a href="index.php" id="logosite"><img src="public/img/45px-P_author.svg_1.png" id="logoscriptblog"><p class="logositetext">Jean Forteroche</p></a>
-
+<div id="groupright">
+<div id="groupButton">
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
     {
@@ -13,6 +14,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         }
 
 ?>
+</div>
  <p id="bonjourPseudo"><?php echo 'Bonjour ' . $_SESSION['pseudo'];?></p>
 
  <?php
@@ -26,6 +28,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         <input type="submit" value="connexion" name="signin" id="connexionSigin">
         <a href="index.php?action=members" id="singupLink">Inscription</a>
 </form>
+</div>
 </div>
 <?php        
         }
