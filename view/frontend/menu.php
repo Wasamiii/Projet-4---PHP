@@ -23,7 +23,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
 <div id="allForm">
 <form action="index.php?action=getlog" method="post" id="connexionForm">
         <p id="titleSigin">Connexion:</p>
-        <input type="name" name="pseudo" placeholder="Pseudo" class="inputSigin" required>
+        <input type="text" name="pseudo" placeholder="Pseudo" class="inputSigin" required>
         <input type="password" name="password" placeholder="Mot de passe" class="inputSigin" required>
         <input type="submit" value="connexion" name="signin" id="connexionSigin">
         <a href="index.php?action=members" id="singupLink">Inscription</a>

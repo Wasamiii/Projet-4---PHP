@@ -4,7 +4,7 @@
     <div id="contentSignup">
         <p id="textSinup">Inscription</p>
         <label for="pseudo" class="signupLabel">Pseudo: </label>
-        <input type="name" name="pseudo"  class="inputSignup"  required></br>
+        <input type="text" name="pseudo"  class="inputSignup"  required></br>
         <label for="email" class="signupLabel">Email: </label>
         <input type="email" name="email" class="inputSignup" required></br>
         <label for="password" class="signupLabel">Mot de Passe: </label>
