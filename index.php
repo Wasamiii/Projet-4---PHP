@@ -16,8 +16,7 @@ try { // On essaie de faire des choses
         case 'post':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
-            }
-            else {
+            }else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
@@ -25,6 +24,8 @@ try { // On essaie de faire des choses
         case 'addPost':
             if(!empty($_POST['titlePost'])&& !empty($_POST['tinymce'])){
                 adderPost($_POST['titlePost'],$_POST['tinymce']);
+            }else {
+                header("Location: index.php"); 
             }
         break;
         //Faire en 2 actions une pour afficher le formulaire l'autre pour traiter les formulaires
@@ -39,6 +40,7 @@ try { // On essaie de faire des choses
         case 'modifyPosting':
             $idPost = $_GET['idPost'];
             modfierPost($_POST['modtitlePost'],$_POST['tinymcemod'],$idPost);
+            $string = str_replace(' ', '', $string);
         break;
         case 'supprPost':
              //appele la fonction suppr pour le post
