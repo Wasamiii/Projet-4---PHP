@@ -1,9 +1,7 @@
-
 <?php $title = 'Billet simple pour l\'Alaska'; ?>
-<script src="/public/JS/main.js" type="text/javascript"></script>
 <?php ob_start(); ?>
-<div id="background-parallax"  data-type="background" data-speed="3"></div>
-<script src="/public/JS/main.js" type="text/javascript"></script>
+<div id="background-parallax" data-type="background" data-speed="3"></div>
+<script src="/public/JS/main.js"></script>
 <h1 class="lastPoster">Derniers billets du blog :</h1>
 
 
@@ -11,21 +9,21 @@
 while ($data = $posts->fetch())
 {
 ?>
-    <div class="news">
-        <p id="titleposter">
-            
-            <?= htmlspecialchars($data['title']) ?>
-            <em class="datepost">le <?= $data['date_post_fr'] ?></em>
-        </p>
-        
-        <div class="postscript">
-            <?= nl2br($data['text_post']) ?>
-            
-        </div>
-        <p id="comments"><em><a href="index.php?action=post&amp;id=<?= $data['id_post'] ?>">Commentaires</a></em></p>
-        <div id="separate"></div>
+<div class="news">
+    <p class="titleposter">
+
+        <?= htmlspecialchars($data['title']) ?>
+        <em class="datepost">le <?= $data['date_post_fr'] ?></em>
+    </p>
+
+    <div class="postscript">
+        <?= nl2br($data['text_post']) ?>
+
     </div>
-    <?php
+    <p class="comments"><em><a href="index.php?action=post&amp;id=<?= $data['id_post'] ?>">Commentaires</a></em></p>
+    <div class="separate"></div>
+</div>
+<?php
 }
 $posts->closeCursor();
 ?>
