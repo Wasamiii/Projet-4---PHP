@@ -5,7 +5,7 @@
     referrerpolicy="origin"></script>
 <form action="index.php?action=modifyPosting&idPost=<?= $post['id_post'] ?>" method="post" id="formModify">
     <input type="text" name="modtitlePost" id="modtitlePost" placeholder="Titre" required>
-    <textarea name="tinymcemod" id="tinymcemod" placeholder="Welcome to TinyMCE!" required></textarea>
+    <textarea name="tinymcemod" id="tinymcemod" placeholder="Welcome to TinyMCE!"></textarea>
     <script>
     tinymce.init({
         forced_root_block: false,
