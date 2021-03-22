@@ -22,7 +22,6 @@ class PostManager extends Manager
 
         return $post;
     }
-    //à modif
     public function supprPost($idPost){
         $db = $this->dbConnect();
         $supprPoster = $db-> prepare('DELETE FROM `post` WHERE id_post = ?');
@@ -44,5 +43,5 @@ class PostManager extends Manager
         $modPost = $db->prepare('UPDATE `post` SET title = ?,text_post= ?,date_post= NOW()  WHERE id_post = ?');
         $modPost->execute(array($modifyTitlePost,$modifyTextPost,$idPost));
         return $modPost;
-    }  
+    }
 }
