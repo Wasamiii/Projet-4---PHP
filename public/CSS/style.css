@@ -27,11 +27,11 @@
 }
 /*Body global*/
 body{
-position: relative;
-height: auto;
-width: auto;
-background: #303030;
-background-repeat: no-repeat;
+    position: relative;
+    height: auto;
+    width: auto;
+    background: #303030;
+    background-repeat: no-repeat;
 }
 /*Header nav menu.php*/
 header{
@@ -173,7 +173,7 @@ h1.lastPoster{
     color: rgb(209, 209, 209);
     margin: 1% 0 1% 2%;
 }
-p#titleposter{
+p.titleposter{
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -192,14 +192,14 @@ div.postscript{
     font-family: "Roboto-Regular";
     color: rgb(209, 209, 209);
 }
-p#comments{
+p.comments{
     display: flex;
     justify-content:flex-end;
     margin: 2% 5% 15px 0px;
 
 
 }
-p#comments a{
+p.comments a{
     font-family: 'Roboto-Regular';
     text-decoration: none;
     padding: 5px 8px 5px 8px ;
@@ -208,12 +208,12 @@ p#comments a{
     color:#e9e9e9;
     background-color: rgb(112, 112, 112);
 }
-p#comments a:hover{
+p.comments a:hover{
     background: #303030;
     color: rgb(209, 209, 209);
     transition: all 0.5s ease-in-out;
 }
-div#separate{
+div.separate{
     display: flex;
     justify-content:center;
     width: 100%;
@@ -496,7 +496,8 @@ div p#copyright{
     }
 }
 @media screen and (max-width:768px){
-    div#groupbutton{
+    div#groupButton{
+        display: flex;
         flex-direction: column;
     }
 
