@@ -23,7 +23,11 @@ try { // On essaie de faire des choses
         break;
         case 'addPost':
             if(!empty($_POST['titlePost'])&& !empty($_POST['tinymce'])){
-                adderPost($_POST['titlePost'],$_POST['tinymce']);
+                $titlePoster = $_POST['titlePost'];
+                $tiny = $_POST['tinymce'];
+                strlen(trim($titlePoster, ' '));
+                strlen(strip_tags($tiny));
+                adderPost($titlePoster,$tiny);
             }else {
                 header("Location: index.php"); 
             }
@@ -38,9 +42,16 @@ try { // On essaie de faire des choses
             }
         break;
         case 'modifyPosting':
-            $idPost = $_GET['idPost'];
-            modfierPost($_POST['modtitlePost'],$_POST['tinymcemod'],$idPost);
-            $string = str_replace(' ', '', $string);
+            if(!empty($_POST['modtitlePost']) && !empty(['tinymcemod'])){
+                $idPost = $_GET['idPost'];
+                $modposttitle = $_POST['modtitlePost'];
+                $modtextpost =  $_POST['tinymcemod'];
+                strlen(trim($modposttitle,' '));
+                strlen(strip_tags($modtextpost));
+                modfierPost($modposttitle,$modtextpost,$idPost);
+            }else{
+                header("Location: index.php");
+            }
         break;
         case 'supprPost':
              //appele la fonction suppr pour le post
