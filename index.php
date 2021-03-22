@@ -44,7 +44,7 @@ try { // On essaie de faire des choses
              //appele la fonction suppr pour le post
             $idPost = $_GET['idPost'];
             supressionPost($idPost);
-        break; 
+        break;
         case 'addComment':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['comment'])) {
@@ -63,7 +63,7 @@ try { // On essaie de faire des choses
             $suppridcomment = $_GET['idComment'];
             $idPost = $_GET['idPost'];
             supressionComment($suppridcomment,$idPost);
-        break; 
+        break;
         case 'report':
             $idReport = $_GET['idComment'];
             $idPost = $_GET['idPost'];
@@ -77,7 +77,7 @@ try { // On essaie de faire des choses
  
         case 'admin':
             if(isset($_SESSION['admin']) && $_SESSION['admin'] == "1"){
-                admin();    
+                admin();
             }else{
                 header("Location: index.php");
             }
